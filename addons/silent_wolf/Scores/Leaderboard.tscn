@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2h8ok8yfc7wb"]
+
+[ext_resource type="Script" path="res://addons/silent_wolf/Scores/Leaderboard.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://da1jal8d6xyt3" path="res://scenes/main_gui/main_gui.tscn" id="1_5yqxn"]
+
+[sub_resource type="Theme" id="Theme_4jgio"]
+
+[node name="DogBase" instance=ExtResource("1_5yqxn")]
+title = "@RANKING"
+go_back_scene_path = "res://scenes/dogbase/dogbase.tscn"
+
+[node name="TitleLabel" parent="Khung/Header/MarginContainer/HBoxContainer" index="1"]
+text = "@RANKING"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Khung" index="1"]
+layout_mode = 2
+
+[node name="Content" parent="Khung" index="2"]
+process_mode = 4
+script = ExtResource("1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Khung/Content" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Khung/Content/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 14.54
+
+[node name="TabContainer" type="TabContainer" parent="Khung/Content/VBoxContainer/Control" index="0"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+
+[node name="HighScores" type="ScrollContainer" parent="Khung/Content/VBoxContainer/Control/TabContainer" index="1"]
+layout_mode = 2
+theme = SubResource("Theme_4jgio")
+horizontal_scroll_mode = 0
+metadata/_tab_name = "@HIGHSCORE"
+
+[node name="MarginContainer" type="MarginContainer" parent="Khung/Content/VBoxContainer/Control/TabContainer/HighScores" index="0"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ScoreItemContainer" type="GridContainer" parent="Khung/Content/VBoxContainer/Control/TabContainer/HighScores/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="FastestTime" type="ScrollContainer" parent="Khung/Content/VBoxContainer/Control/TabContainer" index="2"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_4jgio")
+horizontal_scroll_mode = 0
+metadata/_tab_name = "@FASTESTTIME"
+
+[node name="MarginContainer" type="MarginContainer" parent="Khung/Content/VBoxContainer/Control/TabContainer/FastestTime" index="0"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ScoreItemContainer" type="GridContainer" parent="Khung/Content/VBoxContainer/Control/TabContainer/FastestTime/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="VictoryCount" type="ScrollContainer" parent="Khung/Content/VBoxContainer/Control/TabContainer" index="3"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_4jgio")
+horizontal_scroll_mode = 0
+metadata/_tab_name = "@VICTORYCOUNT"
+
+[node name="MarginContainer" type="MarginContainer" parent="Khung/Content/VBoxContainer/Control/TabContainer/VictoryCount" index="0"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ScoreItemContainer" type="GridContainer" parent="Khung/Content/VBoxContainer/Control/TabContainer/VictoryCount/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="MessageContainer" type="CenterContainer" parent="Khung/Content/VBoxContainer/Control" index="1"]
+layout_mode = 2
+offset_left = 431.0
+offset_top = 180.5
+offset_right = 721.0
+offset_bottom = 233.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextMessage" type="Label" parent="Khung/Content/VBoxContainer/Control/MessageContainer" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Loading scores..."
+
+[node name="MarginContainer" type="MarginContainer" parent="Khung/Content/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 100
+
+[node name="ItemDescription" type="Label" parent="Khung/Content/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"LabelWhite"
+theme_override_font_sizes/font_size = 25
+text = "Mô tả
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="tab_changed" from="Khung/Content/VBoxContainer/Control/TabContainer" to="Khung/Content" method="_on_tab_container_tab_changed"]

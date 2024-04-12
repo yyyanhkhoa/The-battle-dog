@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://b3xfrqtapv6lu"
+path="res://.godot/imported/click_mask.png-b45dc5f751b6f2d41739ca42307579fc.res"
+
+[deps]
+
+source_file="res://scenes/online_battle/p2p_battlefield/p2p_gui/surrender_button/click_mask.png"
+dest_files=["res://.godot/imported/click_mask.png-b45dc5f751b6f2d41739ca42307579fc.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

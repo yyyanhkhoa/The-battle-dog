@@ -1,0 +1,187 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnn3ii07m2362"]
+
+[ext_resource type="Script" path="res://scenes/instruction/instruction.gd" id="1_tg54e"]
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="2_cmfjr"]
+[ext_resource type="Texture2D" uid="uid://cdkc6hj5rhitv" path="res://scenes/instruction/map1.png" id="2_vqj2t"]
+[ext_resource type="Texture2D" uid="uid://b66rybdnspq6m" path="res://scenes/instruction/map2.png" id="3_16jyn"]
+[ext_resource type="Texture2D" uid="uid://d083yrslq0t1h" path="res://scenes/instruction/selecetCharacter.png" id="4_tny0h"]
+[ext_resource type="Texture2D" uid="uid://cdxk8mq5g82wl" path="res://scenes/instruction/battle1.png" id="5_h13hi"]
+[ext_resource type="Texture2D" uid="uid://cicc6cjcjvl8h" path="res://scenes/instruction/battle2.png" id="6_af6f0"]
+[ext_resource type="Texture2D" uid="uid://qvb0yijabbqn" path="res://scenes/instruction/battle3.png" id="7_52xav"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_tg54e")
+
+[node name="Node" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("2_cmfjr")
+
+[node name="Screen4" type="Control" parent="Node"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 650.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_cmfjr")
+
+[node name="picture" type="TextureRect" parent="Node/Screen4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cmfjr")
+texture = ExtResource("2_vqj2t")
+
+[node name="Screen1" type="Control" parent="Node"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 650.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_cmfjr")
+
+[node name="picture" type="TextureRect" parent="Node/Screen1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cmfjr")
+texture = ExtResource("3_16jyn")
+
+[node name="Screen2" type="Control" parent="Node"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 650.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_cmfjr")
+
+[node name="picture" type="TextureRect" parent="Node/Screen2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cmfjr")
+texture = ExtResource("4_tny0h")
+
+[node name="Screen3" type="Control" parent="Node"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 650.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_cmfjr")
+
+[node name="picture" type="TextureRect" parent="Node/Screen3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cmfjr")
+texture = ExtResource("5_h13hi")
+
+[node name="Screen5" type="Control" parent="Node"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 650.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_cmfjr")
+
+[node name="picture" type="TextureRect" parent="Node/Screen5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cmfjr")
+texture = ExtResource("6_af6f0")
+
+[node name="Screen6" type="Control" parent="Node"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 650.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_cmfjr")
+
+[node name="picture" type="TextureRect" parent="Node/Screen6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cmfjr")
+texture = ExtResource("7_52xav")
+
+[node name="Header" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 59)
+layout_direction = 1
+offset_right = 404.0
+offset_bottom = 59.0
+localize_numeral_system = false
+theme = ExtResource("2_cmfjr")
+
+[node name="Title" type="HBoxContainer" parent="Header"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_cmfjr")
+
+[node name="GoBackButton" type="Button" parent="Header/Title"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme = ExtResource("2_cmfjr")
+theme_override_font_sizes/font_size = 18
+text = "@BACK"
+
+[node name="MarginContainer" type="MarginContainer" parent="Header/Title"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_cmfjr")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="MoveForward" type="Button" parent="."]
+offset_left = 1066.0
+offset_top = 293.0
+offset_right = 1124.0
+offset_bottom = 344.0
+size_flags_horizontal = 3
+theme = ExtResource("2_cmfjr")
+text = ">"
+
+[node name="BackForward" type="Button" parent="."]
+offset_left = 29.0
+offset_top = 293.0
+offset_right = 87.0
+offset_bottom = 344.0
+size_flags_horizontal = 3
+theme = ExtResource("2_cmfjr")
+text = "<"
+
+[connection signal="pressed" from="Header/Title/GoBackButton" to="." method="_on_go_back_button_pressed"]
+[connection signal="pressed" from="MoveForward" to="." method="_on_move_forward_pressed"]
+[connection signal="pressed" from="BackForward" to="." method="_on_back_forward_pressed"]

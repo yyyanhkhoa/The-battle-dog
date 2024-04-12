@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b25kjfpqgqbyy"]
+
+[ext_resource type="PackedScene" uid="uid://dbx365yymmgo5" path="res://scenes/characters/cats/cat/cat.tscn" id="1_sorff"]
+[ext_resource type="PackedScene" uid="uid://cedh84t4ewxuw" path="res://scenes/characters/dogs/dog/dog.tscn" id="2_5e3xs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avlfn"]
+size = Vector2(1799, 40)
+
+[node name="Test" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_sorff")]
+position = Vector2(826, 375)
+collision_mask = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(801.5, 531)
+shape = SubResource("RectangleShape2D_avlfn")
+
+[node name="Node2D2" parent="." instance=ExtResource("1_sorff")]
+position = Vector2(868, 351)
+scale = Vector2(0.997393, 1)
+collision_mask = 3
+
+[node name="Dog" parent="." instance=ExtResource("2_5e3xs")]
+position = Vector2(360, 346)
+collision_mask = 5
+attack_area_range = 20
+health = 400
+damage = 100

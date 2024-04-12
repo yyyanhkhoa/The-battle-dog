@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg431mihiquab"]
+
+[ext_resource type="PackedScene" uid="uid://cto0tiylqerf7" path="res://scenes/common/buttons/rectangular_button/rectangular_button.tscn" id="1_iqesx"]
+[ext_resource type="Script" path="res://scenes/team_setup/box_character.gd" id="1_p4qam"]
+
+[node name="BoxCharacter" instance=ExtResource("1_iqesx")]
+custom_minimum_size = Vector2(128, 101)
+offset_right = 128.0
+offset_bottom = 101.0
+script = ExtResource("1_p4qam")
+
+[node name="Background" parent="." index="0"]
+position = Vector2(63.4, 52)
+scale = Vector2(0.4, 0.4)
+
+[node name="Icon" parent="." index="1"]
+position = Vector2(63.4, 52)
+scale = Vector2(0.4, 0.4)
+
+[node name="Border" parent="." index="2"]
+position = Vector2(63.4, 52)
+scale = Vector2(0.4, 0.4)

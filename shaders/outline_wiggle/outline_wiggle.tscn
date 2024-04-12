@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://m0w33om2jt3l"]
+
+[ext_resource type="Shader" path="res://shaders/outline_wiggle/outline_wiggle.gdshader" id="1_gxxny"]
+[ext_resource type="Script" path="res://scenes/battlefields/shrine_maiden_battlefield/tori/outline_noise.gd" id="2_phddw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnu5d"]
+shader = ExtResource("1_gxxny")
+shader_parameter/zoom = 0.297302
+shader_parameter/max_line_width = 20.0
+shader_parameter/min_line_width = 1.0
+shader_parameter/intensity = 1.0
+shader_parameter/fracture = 1.0
+shader_parameter/block_size = 20.0
+shader_parameter/speed = 1.0
+shader_parameter/line_blur = 0.125
+shader_parameter/seed = 0.0
+shader_parameter/brightness = 1.0
+shader_parameter/line_color = Color(1, 0.25098, 0.388235, 1)
+
+[node name="OutlineWiggle" type="CanvasGroup"]
+material = SubResource("ShaderMaterial_nnu5d")
+script = ExtResource("2_phddw")

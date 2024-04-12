@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://csqn20ypesci4"]
+
+[ext_resource type="Script" path="res://scenes/online_battle/p2p_battlefield/in_battle_ready/in_battle_ready.gd" id="1_mgf1x"]
+[ext_resource type="PackedScene" uid="uid://cniblhu062ir" path="res://scenes/popup/popup.tscn" id="2_dom3b"]
+
+[node name="InBattleReady" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_mgf1x")
+
+[node name="InBattleReadyResendTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Popup" parent="." instance=ExtResource("2_dom3b")]
+unique_name_in_owner = true

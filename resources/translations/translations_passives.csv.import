@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b0njj2fl3dqoq"
+
+[deps]
+
+files=["res://resources/translations/translations_passives.vi.translation", "res://resources/translations/translations_passives.en.translation"]
+
+source_file="res://resources/translations/translations_passives.csv"
+dest_files=["res://resources/translations/translations_passives.vi.translation", "res://resources/translations/translations_passives.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

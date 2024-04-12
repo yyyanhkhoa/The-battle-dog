@@ -1,0 +1,22 @@
+[
+  {
+    "ID": "money_efficiency",
+    "price": 1000
+  },
+  {
+    "ID": "wallet_capacity",
+    "price": 1000
+  },
+  {
+    "ID": "dog_tower_health",
+    "price": 500
+  },
+  {
+    "ID": "bone_reward_up",
+    "price": 1000
+  },
+  {
+    "ID": "gandolfg",
+    "price": 10000
+  }
+]

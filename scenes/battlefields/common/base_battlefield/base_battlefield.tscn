@@ -1,0 +1,78 @@
+[gd_scene load_steps=15 format=3 uid="uid://culho3ivbdqd3"]
+
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/base_battlefield.gd" id="1_ymnkr"]
+[ext_resource type="Shader" path="res://shaders/sky/sky.gdshader" id="2_o4s8m"]
+[ext_resource type="Texture2D" uid="uid://dl847jxlc5jay" path="res://resources/battlefield_themes/green_grass/sky.png" id="3_mn6xr"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/sky.gd" id="4_paltt"]
+[ext_resource type="PackedScene" uid="uid://dmhx2wpadmcol" path="res://scenes/battlefields/common/base_battlefield/gui/gui.tscn" id="5_ipovo"]
+[ext_resource type="PackedScene" uid="uid://dtepcyc438je4" path="res://scenes/battlefields/common/base_battlefield/item_stores/store_gui.tscn" id="6_i0mnv"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/Camera2D.gd" id="7_wb28v"]
+[ext_resource type="Script" path="res://scenes/danmaku/danmaku_space.gd" id="8_gd46w"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3og61"]
+noise_type = 3
+frequency = 0.0466
+fractal_gain = -0.455
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_477bh"]
+seamless = true
+noise = SubResource("FastNoiseLite_3og61")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rdvek"]
+noise_type = 3
+frequency = 0.0121
+fractal_gain = -0.1
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f32ow"]
+seamless = true
+noise = SubResource("FastNoiseLite_rdvek")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fw6ad"]
+shader = ExtResource("2_o4s8m")
+shader_parameter/sky_wiggle = 10.0
+shader_parameter/noise_speed_scale = 0.075
+shader_parameter/noise_wiggle = 70.0
+shader_parameter/intensity = 0.08
+shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/speed_scale = 0.025
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_477bh")
+shader_parameter/noise_texture_2 = SubResource("NoiseTexture2D_f32ow")
+
+[sub_resource type="Environment" id="Environment_xp4xy"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.03
+glow_blend_mode = 0
+
+[node name="BaseBattlefield" type="Node2D"]
+script = ExtResource("1_ymnkr")
+
+[node name="store_gui" parent="." instance=ExtResource("6_i0mnv")]
+
+[node name="Gui" parent="." instance=ExtResource("5_ipovo")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("7_wb28v")
+
+[node name="Sky" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_fw6ad")
+offset_left = -760.0
+offset_top = -1064.0
+offset_right = 2312.0
+offset_bottom = 1384.0
+size_flags_horizontal = 4
+texture = ExtResource("3_mn6xr")
+stretch_mode = 1
+script = ExtResource("4_paltt")
+
+[node name="EffectSpace" type="Node2D" parent="."]
+z_index = 40
+
+[node name="DanmakuSpace" type="Node" parent="."]
+script = ExtResource("8_gd46w")
+bullet_types_amount = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xp4xy")

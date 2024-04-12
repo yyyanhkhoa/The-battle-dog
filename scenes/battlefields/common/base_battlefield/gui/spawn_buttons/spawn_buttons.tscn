@@ -1,0 +1,146 @@
+[gd_scene load_steps=27 format=3 uid="uid://e7fcshjccrpt"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_lmbbu"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/gui/spawn_buttons/spawn_buttons.gd" id="1_rsd52"]
+[ext_resource type="PackedScene" uid="uid://cc4bqrpdv8f6n" path="res://scenes/battlefields/common/base_battlefield/gui/spawn_buttons/spawn_button.tscn" id="2_23hyj"]
+[ext_resource type="PackedScene" uid="uid://j4j2gjue6ewr" path="res://scenes/battlefields/common/base_battlefield/gui/switch_row_button/switch_row_button.tscn" id="3_lpfmx"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_hexly"]
+action = &"ui_spawn_1"
+
+[sub_resource type="Shortcut" id="Shortcut_cxncl"]
+events = [SubResource("InputEventAction_hexly")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_6jq3f"]
+action = &"ui_spawn_2"
+
+[sub_resource type="Shortcut" id="Shortcut_lmhjo"]
+events = [SubResource("InputEventAction_6jq3f")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_l1v4l"]
+action = &"ui_spawn_3"
+
+[sub_resource type="Shortcut" id="Shortcut_b4u8f"]
+events = [SubResource("InputEventAction_l1v4l")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_dneop"]
+action = &"ui_spawn_4"
+
+[sub_resource type="Shortcut" id="Shortcut_xo41r"]
+events = [SubResource("InputEventAction_dneop")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_n62fg"]
+action = &"ui_spawn_5"
+
+[sub_resource type="Shortcut" id="Shortcut_2e8or"]
+events = [SubResource("InputEventAction_n62fg")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_jthvt"]
+action = &"ui_spawn_1"
+
+[sub_resource type="Shortcut" id="Shortcut_7g7m8"]
+events = [SubResource("InputEventAction_jthvt")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_gr0dd"]
+action = &"ui_spawn_2"
+
+[sub_resource type="Shortcut" id="Shortcut_lhqpr"]
+events = [SubResource("InputEventAction_gr0dd")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_eg2w7"]
+action = &"ui_spawn_3"
+
+[sub_resource type="Shortcut" id="Shortcut_54m5b"]
+events = [SubResource("InputEventAction_eg2w7")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_fdgxo"]
+action = &"ui_spawn_4"
+
+[sub_resource type="Shortcut" id="Shortcut_l0ms7"]
+events = [SubResource("InputEventAction_fdgxo")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_hve0o"]
+action = &"ui_spawn_5"
+
+[sub_resource type="Shortcut" id="Shortcut_3rmuo"]
+events = [SubResource("InputEventAction_hve0o")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_cvmn1"]
+action = &"ui_switch_row"
+
+[sub_resource type="Shortcut" id="Shortcut_5bk3l"]
+events = [SubResource("InputEventAction_cvmn1")]
+
+[node name="SpawnButtons" type="Control"]
+custom_minimum_size = Vector2(2108, 294)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2108.0
+offset_bottom = 294.0
+scale = Vector2(0.35, 0.35)
+theme = ExtResource("1_lmbbu")
+script = ExtResource("1_rsd52")
+
+[node name="SecondRow" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 27.0
+offset_top = 27.0
+offset_right = 1847.0
+offset_bottom = 273.0
+theme_override_constants/separation = 50
+
+[node name="CharacterButton" parent="SecondRow" instance=ExtResource("2_23hyj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_cxncl")
+
+[node name="CharacterButton2" parent="SecondRow" instance=ExtResource("2_23hyj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_lmhjo")
+
+[node name="CharacterButton3" parent="SecondRow" instance=ExtResource("2_23hyj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_b4u8f")
+
+[node name="CharacterButton4" parent="SecondRow" instance=ExtResource("2_23hyj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_xo41r")
+
+[node name="CharacterButton5" parent="SecondRow" instance=ExtResource("2_23hyj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_2e8or")
+
+[node name="FirstRow" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 1819.0
+offset_bottom = 246.0
+theme_override_constants/separation = 50
+
+[node name="CharacterButton" parent="FirstRow" instance=ExtResource("2_23hyj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_7g7m8")
+
+[node name="CharacterButton2" parent="FirstRow" instance=ExtResource("2_23hyj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_lhqpr")
+
+[node name="CharacterButton3" parent="FirstRow" instance=ExtResource("2_23hyj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_54m5b")
+
+[node name="CharacterButton4" parent="FirstRow" instance=ExtResource("2_23hyj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_l0ms7")
+
+[node name="CharacterButton5" parent="FirstRow" instance=ExtResource("2_23hyj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_3rmuo")
+
+[node name="SwitchRowButton" parent="." instance=ExtResource("3_lpfmx")]
+layout_mode = 0
+offset_left = 1867.0
+offset_top = -8.0
+offset_right = 2058.0
+offset_bottom = 185.0
+scale = Vector2(1.25, 1.25)
+shortcut = SubResource("Shortcut_5bk3l")

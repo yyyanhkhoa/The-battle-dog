@@ -1,0 +1,159 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5r5fs41wchm6"]
+
+[ext_resource type="PackedScene" uid="uid://bj0cb0c3284hb" path="res://scenes/common/buttons/icon_button/icon_button.tscn" id="1_4baoo"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/gui/pause_menu/close_button/close_button.gd" id="2_htmup"]
+[ext_resource type="Texture2D" uid="uid://b8vorbxft7yvf" path="res://scenes/battlefields/common/base_battlefield/gui/pause_menu/close_button/close_icon.png" id="3_huj3f"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_u2lp1"]
+action = &"ui_cancel"
+
+[sub_resource type="InputEventAction" id="InputEventAction_it7jy"]
+action = &"ui_pause"
+
+[sub_resource type="Shortcut" id="Shortcut_jssxf"]
+events = [SubResource("InputEventAction_u2lp1"), SubResource("InputEventAction_it7jy")]
+
+[sub_resource type="Animation" id="Animation_ty6py"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_c6xly"]
+resource_name = "default"
+length = 1.00001
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vkwbq"]
+resource_name = "hold"
+length = 1.00001
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3333, 0.6666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jjkt6"]
+_data = {
+"RESET": SubResource("Animation_ty6py"),
+"default": SubResource("Animation_c6xly"),
+"hold": SubResource("Animation_vkwbq")
+}
+
+[node name="CloseButton" instance=ExtResource("1_4baoo")]
+shortcut = SubResource("Shortcut_jssxf")
+script = ExtResource("2_htmup")
+
+[node name="Background" parent="." index="0"]
+frame = 1
+
+[node name="Icon" parent="." index="1"]
+texture = ExtResource("3_huj3f")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_jjkt6")
+}

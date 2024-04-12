@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bctg1vwes6h8p"]
+
+[ext_resource type="Shader" path="res://shaders/sky_invert/sky_invert.gdshader" id="1_7cvrp"]
+[ext_resource type="Script" path="res://scenes/effects/sky_invert/sky_invert.gd" id="2_vpjdf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcc7y"]
+shader = ExtResource("1_7cvrp")
+shader_parameter/circle_size = 0.0
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/ratio = 1.77778
+shader_parameter/zoom = 1.0
+shader_parameter/invert = 1.0
+shader_parameter/subtract = Color(0, 0, 0, 1)
+shader_parameter/add = Color(0, 0, 0, 1)
+shader_parameter/difference = Color(0, 0, 0, 1)
+shader_parameter/exclusion = Color(0, 0, 0, 1)
+shader_parameter/multiply = Color(1, 1, 1, 1)
+shader_parameter/hue_shift = 0.0
+
+[node name="ColorRect" type="ColorRect"]
+z_index = 110
+material = SubResource("ShaderMaterial_kcc7y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("2_vpjdf")

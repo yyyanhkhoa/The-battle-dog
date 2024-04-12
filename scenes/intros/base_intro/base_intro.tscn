@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgijh6rec7p7b"]
+
+[ext_resource type="Script" path="res://scenes/intros/base_intro/base_intro.gd" id="1_tqmis"]
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="2_a26b4"]
+[ext_resource type="Shortcut" uid="uid://krf4dorlu4cx" path="res://resources/shortcuts/cancel.tres" id="3_cfx1v"]
+
+[node name="BaseIntro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_a26b4")
+script = ExtResource("1_tqmis")
+
+[node name="IntroCover" type="Sprite2D" parent="."]
+centered = false
+
+[node name="SkipButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 568.0
+offset_right = 1103.0
+offset_bottom = 616.0
+focus_mode = 0
+shortcut = ExtResource("3_cfx1v")
+text = "@SKIP"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 170
+theme_override_constants/margin_right = 170
+
+[node name="TextContainer" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/TextContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "<TEXT>"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TransitionRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_a26b4")
+color = Color(0, 0, 0, 1)

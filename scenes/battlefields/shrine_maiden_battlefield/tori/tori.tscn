@@ -1,0 +1,587 @@
+[gd_scene load_steps=19 format=3 uid="uid://c2a1mjshryixe"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_jefcv"]
+[ext_resource type="Script" path="res://scenes/battlefields/shrine_maiden_battlefield/tori/tori.gd" id="1_jm0ga"]
+[ext_resource type="PackedScene" uid="uid://m0w33om2jt3l" path="res://shaders/outline_wiggle/outline_wiggle.tscn" id="2_2hoel"]
+[ext_resource type="Texture2D" uid="uid://brv8dcl1k56eh" path="res://scenes/battlefields/shrine_maiden_battlefield/tori/tori.png" id="3_boyeq"]
+[ext_resource type="Shader" path="res://shaders/outline_wiggle/outline_wiggle.gdshader" id="3_er36e"]
+[ext_resource type="Texture2D" uid="uid://kldus482fa2k" path="res://scenes/battlefields/shrine_maiden_battlefield/tori/tori_destroy_1.png" id="3_ip5le"]
+[ext_resource type="Texture2D" uid="uid://ccsjn26a6rsbc" path="res://scenes/battlefields/shrine_maiden_battlefield/tori/tori_destroy_2.png" id="4_1d338"]
+[ext_resource type="Texture2D" uid="uid://eertlj2p1hx4" path="res://scenes/battlefields/shrine_maiden_battlefield/tori/tori_destroy_3.png" id="4_82puu"]
+[ext_resource type="Texture2D" uid="uid://bju1sp4ht0031" path="res://scenes/battlefields/shrine_maiden_battlefield/tori/tori_destroy_4.png" id="6_hj483"]
+[ext_resource type="Texture2D" uid="uid://dumyrvpf7kkiv" path="res://scenes/battlefields/shrine_maiden_battlefield/tori/tori_2.png" id="7_fkav5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnu5d"]
+shader = ExtResource("3_er36e")
+shader_parameter/zoom = 0.5
+shader_parameter/max_line_width = 20.0
+shader_parameter/min_line_width = 1.0
+shader_parameter/intensity = 2.815
+shader_parameter/fracture = 1.0
+shader_parameter/block_size = 20.0
+shader_parameter/speed = 1.0
+shader_parameter/line_blur = 0.125
+shader_parameter/seed = 0.0
+shader_parameter/brightness = 3.0
+shader_parameter/line_color = Color(0.941176, 0.109804, 0.0666667, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlqyi"]
+size = Vector2(304, 1505)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lox3s"]
+font_size = 52
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_uenk0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OutlineWiggle/ToriPart:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OutlineWiggle/ToriPart2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OutlineWiggle/ToriPart:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, -887)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OutlineWiggle/ToriPart:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OutlineWiggle/ToriPart2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-184, -1234)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OutlineWiggle/ToriPart4:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_fkav5")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OutlineWiggle/ToriPart2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("OutlineWiggle/ToriPart:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("3_boyeq")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("OutlineWiggle/ToriPart3:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("OutlineWiggle/ToriPart4:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("OutlineWiggle/ToriPart4:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(226, -654)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("OutlineWiggle:material:shader_parameter/max_line_width")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("OutlineWiggle:material:shader_parameter/min_line_width")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("OutlineWiggle:material")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_nnu5d")]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("OutlineWiggle:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_66es7"]
+resource_name = "destroy"
+length = 6.0
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OutlineWiggle/ToriPart2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.96667, 2.1, 2.23333, 2.36667, 2.5),
+"transitions": PackedFloat32Array(1.18921, 1.23114, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.195986, 0.405223, -0.0509575, 0.394885]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OutlineWiggle/ToriPart:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OutlineWiggle/ToriPart4:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OutlineWiggle/ToriPart:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OutlineWiggle/ToriPart2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.96667, 2.1, 2.23333, 2.3, 2.36667, 2.43333, 2.5, 2.63333),
+"transitions": PackedFloat32Array(1.18921, 1.23114, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-184, -1234), Vector2(-271, -1002), Vector2(-427, -197), Vector2(-535, -242), Vector2(-670, -204), Vector2(-719, -210), Vector2(-759, -170), Vector2(-777, -170)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OutlineWiggle/ToriPart4:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_hj483")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OutlineWiggle/ToriPart3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("OutlineWiggle/ToriPart:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_boyeq"), ExtResource("3_ip5le")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("OutlineWiggle/ToriPart2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("OutlineWiggle/ToriPart:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(8, -887), Vector2(-264, -568)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("OutlineWiggle/ToriPart4:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.2, 1.96667, 2.1, 2.3, 2.4, 2.5, 2.63333),
+"transitions": PackedFloat32Array(1.51572, 1.18921, 1.58341, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(148, -1411), Vector2(189, -1374), Vector2(278, -1249), Vector2(532, -125), Vector2(587, -206), Vector2(638, -130), Vector2(683, -130)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("OutlineWiggle:material:shader_parameter/max_line_width")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [20.0, 0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("OutlineWiggle:material:shader_parameter/min_line_width")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("OutlineWiggle:material")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_nnu5d"), null]
+}
+
+[sub_resource type="Animation" id="Animation_3eypb"]
+resource_name = "growl"
+length = 1.20001
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OutlineWiggle/ToriPart:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OutlineWiggle/ToriPart4:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OutlineWiggle/ToriPart2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OutlineWiggle/ToriPart3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OutlineWiggle:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1vn7f"]
+resource_name = "fall"
+length = 0.350005
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OutlineWiggle/ToriPart:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OutlineWiggle/ToriPart4:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OutlineWiggle/ToriPart2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OutlineWiggle/ToriPart3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OutlineWiggle:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(6, 0), Vector2(-6, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qra5t"]
+_data = {
+"RESET": SubResource("Animation_uenk0"),
+"destroy": SubResource("Animation_66es7"),
+"growl": SubResource("Animation_3eypb"),
+"shake": SubResource("Animation_1vn7f")
+}
+
+[node name="Tori" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_jm0ga")
+
+[node name="OutlineWiggle" parent="." instance=ExtResource("2_2hoel")]
+material = SubResource("ShaderMaterial_nnu5d")
+
+[node name="ToriPart" type="Sprite2D" parent="OutlineWiggle"]
+position = Vector2(8, -887)
+texture = ExtResource("3_boyeq")
+hframes = 2
+
+[node name="ToriPart2" type="Sprite2D" parent="OutlineWiggle"]
+visible = false
+position = Vector2(-184, -1234)
+texture = ExtResource("4_82puu")
+
+[node name="ToriPart3" type="Sprite2D" parent="OutlineWiggle"]
+visible = false
+z_index = 41
+position = Vector2(186, -548)
+texture = ExtResource("4_1d338")
+
+[node name="ToriPart4" type="Sprite2D" parent="OutlineWiggle"]
+z_index = 41
+position = Vector2(226, -654)
+texture = ExtResource("7_fkav5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(156, -722.5)
+shape = SubResource("RectangleShape2D_qlqyi")
+
+[node name="HealthLabel" type="Label" parent="."]
+z_index = 999
+offset_left = -811.0
+offset_top = 60.0
+offset_right = 851.0
+offset_bottom = 135.0
+size_flags_horizontal = 4
+theme = ExtResource("1_jefcv")
+text = "500/500 HP"
+label_settings = SubResource("LabelSettings_lox3s")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qra5t")
+}
+
+[node name="FaceMarker" type="Marker2D" parent="."]
+position = Vector2(-84, -1257)
+gizmo_extents = 54.5
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(56, -170)

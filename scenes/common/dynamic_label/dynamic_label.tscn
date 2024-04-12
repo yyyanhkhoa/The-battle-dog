@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://cyx2xpe6fy6th"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_2n0hc"]
+[ext_resource type="Script" path="res://scenes/common/dynamic_label/jump_text_effect.gd" id="2_jcsbp"]
+[ext_resource type="Script" path="res://scenes/common/dynamic_label/highlight_text_effect.gd" id="3_g7avp"]
+[ext_resource type="Script" path="res://scenes/common/dynamic_label/typography_text_effect.gd" id="4_a463v"]
+[ext_resource type="Script" path="res://scenes/common/dynamic_label/dynamic_label.gd" id="5_7qhfg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ui5b"]
+content_margin_left = 40.0
+content_margin_top = 25.0
+content_margin_right = 40.0
+content_margin_bottom = 25.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_h7gya"]
+script = ExtResource("4_a463v")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_m3mfk"]
+script = ExtResource("2_jcsbp")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_g1a2t"]
+script = ExtResource("3_g7avp")
+
+[node name="DynamicLabel" type="RichTextLabel"]
+offset_right = 412.0
+offset_bottom = 78.0
+theme = ExtResource("1_2n0hc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1ui5b")
+bbcode_enabled = true
+text = "[typo]Testing 123..., ayo what's up how you do"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+custom_effects = [SubResource("RichTextEffect_h7gya"), SubResource("RichTextEffect_m3mfk"), SubResource("RichTextEffect_g1a2t")]
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+script = ExtResource("5_7qhfg")

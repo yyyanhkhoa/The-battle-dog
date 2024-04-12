@@ -1,0 +1,132 @@
+{
+  "theme": "night",
+  "music": "battlefield_theme_rush2",
+  "stage_width": 3700,
+  "cat_tower_health": 12000,
+  "reward_bone": 200000,
+  "power_scale": 1.5,
+  "spawn_patterns": [
+    {
+      "id": "smol_cat",
+      "interval": 0.25,
+      "delay": 5
+    },
+    {
+      "id": "smol_cat",
+      "interval": 1,
+      "delay": 5.05
+    },
+    {
+      "id": "smol_cat",
+      "interval": 1,
+      "delay": 5.1
+    },
+    {
+      "id": "smol_cat",
+      "interval": 1,
+      "delay": 5.35
+    },
+    {
+      "id": "smol_cat",
+      "interval": 1,
+      "delay": 5.6
+    },
+    {
+      "id": "smol_cat",
+      "interval": 1,
+      "delay": 5.95
+    },
+    {
+      "id": "smol_cat",
+      "interval": 0.75,
+      "delay": 35.1
+    },
+    {
+      "id": "smol_cat",
+      "interval": 0.75,
+      "delay": 35.35
+    },
+    {
+      "id": "smol_cat",
+      "interval": 0.75,
+      "delay": 35.6
+    },
+    {
+      "id": "smol_cat",
+      "interval": 0.75,
+      "delay": 35.95
+    }
+  ],
+  "bosses": [
+    {
+      "health_at": 1,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "speed", "scale": 2 },
+        { "name": "health", "scale": 10 },
+        { "name": "damage", "scale": 10 },
+        { "name": "reward_money", "scale": 3 }
+      ]
+    },
+    {
+      "health_at": 1,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "speed", "scale": 2 },
+        { "name": "health", "scale": 10 },
+        { "name": "damage", "scale": 10 },
+        { "name": "reward_money", "scale": 3 }
+      ]
+    },
+    {
+      "health_at": 1,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "speed", "scale": 2 },
+        { "name": "health", "scale": 10 },
+        { "name": "damage", "scale": 10 },
+        { "name": "reward_money", "scale": 3 }
+      ]
+    },
+    {
+      "health_at": 1,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "speed", "scale": 2.2 },
+        { "name": "health", "scale": 10 },
+        { "name": "damage", "scale": 10 },
+        { "name": "reward_money", "scale": 3 }
+      ]
+    },
+    {
+      "health_at": 1,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "speed", "scale": 3 },
+        { "name": "health", "scale": 10 },
+        { "name": "damage", "scale": 10 },
+        { "name": "reward_money", "scale": 3 }
+      ]
+    },
+    {
+      "health_at": 1,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "speed", "scale": 3.747 },
+        { "name": "health", "scale": 10 },
+        { "name": "damage", "scale": 10 },
+        { "name": "reward_money", "scale": 3 }
+      ]
+    },
+    {
+      "health_at": 1,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "speed", "scale": 0.1 },
+        { "name": "health", "scale": 50 },
+        { "name": "damage", "scale": 20 },
+        { "name": "reward_money", "scale": 10 }
+      ]
+    }
+  ]
+}

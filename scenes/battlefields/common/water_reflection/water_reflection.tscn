@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwcmwa546ult1"]
+
+[ext_resource type="Material" uid="uid://dh4v3vpys04rn" path="res://shaders/water_reflection/water_reflection.tres" id="1_6jbyy"]
+[ext_resource type="Texture2D" uid="uid://f7ttqqnis37x" path="res://resources/images/godot.svg" id="2_mbmg0"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/water_reflection/reflection.gd" id="3_ldbs4"]
+
+[node name="Reflection" type="Sprite2D"]
+z_index = 100
+material = ExtResource("1_6jbyy")
+scale = Vector2(28.5062, 3.1875)
+texture = ExtResource("2_mbmg0")
+centered = false
+script = ExtResource("3_ldbs4")

@@ -1,0 +1,177 @@
+{
+  "theme": "nightmare",
+  "music": "battlefield_theme_nightmare",
+  "special_instruction": "invert_color",
+  "stage_width": 3200,
+  "cat_tower_health": 10,
+  "reward_bone": 414314,
+  "power_scale": 2.75,
+  "spawn_patterns": [
+    {
+      "id": "cat",
+      "interval": 5,
+      "delay": 5
+    },
+    {
+      "id": "leg_cat",
+      "interval": 5,
+      "delay": 10.5
+    },
+    {
+      "id": "rolling_cat",
+      "interval": 5,
+      "delay": 20
+    },
+    {
+      "id": "smol_cat",
+      "interval": 0.5,
+      "delay": 40
+    }
+  ],
+  "bosses": [
+    {
+      "health_at": 9,
+      "id": "cat",
+      "buffs": [
+        { "name": "speed", "scale": 1 },
+        { "name": "health", "scale": 20 },
+        { "name": "damage", "scale": 1 },
+        { "name": "attack_cooldown", "scale": 0.5 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 }
+      ]
+    },
+    {
+      "health_at": 8,
+      "id": "cat",
+      "buffs": [
+        { "name": "speed", "scale": 1.5 },
+        { "name": "health", "scale": 25 },
+        { "name": "damage", "scale": 2 },
+        { "name": "attack_cooldown", "scale": 0.25 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 }
+      ]
+    },
+    {
+      "health_at": 7,
+      "id": "cat",
+      "buffs": [
+        { "name": "speed", "scale": 2 },
+        { "name": "health", "scale": 30 },
+        { "name": "damage", "scale": 3 },
+        { "name": "attack_cooldown", "scale": 0.1 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 }
+      ]
+    },
+    {
+      "health_at": 6,
+      "id": "cat",
+      "buffs": [
+        { "name": "speed", "scale": 2.5 },
+        { "name": "health", "scale": 35 },
+        { "name": "damage", "scale": 4 },
+        { "name": "attack_cooldown", "scale": 0.1 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 }
+      ]
+    },
+    {
+      "health_at": 5,
+      "id": "cat",
+      "buffs": [
+        { "name": "speed", "scale": 3 },
+        { "name": "health", "scale": 40 },
+        { "name": "damage", "scale": 5 },
+        { "name": "attack_cooldown", "scale": 0.1 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 }
+      ]
+    },
+    {
+      "health_at": 4,
+      "id": "cat",
+      "buffs": [
+        { "name": "speed", "scale": 3.5 },
+        { "name": "health", "scale": 60 },
+        { "name": "damage", "scale": 6 },
+        { "name": "attack_cooldown", "scale": 0.1 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 }
+      ]
+    },
+    {
+      "health_at": 3,
+      "id": "cat",
+      "buffs": [
+        { "name": "speed", "scale": 4 },
+        { "name": "health", "scale": 70 },
+        { "name": "damage", "scale": 7 },
+        { "name": "attack_cooldown", "scale": 0.1 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 }
+      ]
+    },
+    {
+      "health_at": 2,
+      "id": "cat",
+      "buffs": [
+        { "name": "speed", "scale": 5 },
+        { "name": "health", "scale": 90 },
+        { "name": "damage", "scale": 8 },
+        { "name": "attack_cooldown", "scale": 0.1 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 }
+      ]
+    },
+    {
+      "health_at": 1,
+      "id": "cat",
+      "buffs": [
+        { "name": "speed", "scale": 0.2 },
+        { "name": "health", "scale": 150 },
+        { "name": "damage", "scale": 15 },
+        { "name": "attack_cooldown", "scale": 0.1 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 }
+      ]
+    },
+    {
+      "health_at": 1,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "speed", "scale": 1.5 },
+        { "name": "health", "scale": 10 },
+        { "name": "damage", "scale": 10 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 },
+        { "name": "knockbacks", "value": 12 }
+      ]
+    },
+    {
+      "health_at": 1,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "speed", "scale": 2 },
+        { "name": "health", "scale": 10 },
+        { "name": "damage", "scale": 10 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 },
+        { "name": "knockbacks", "value": 12 }
+      ]
+    },
+    {
+      "health_at": 1,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "speed", "scale": 2.2 },
+        { "name": "health", "scale": 10 },
+        { "name": "damage", "scale": 10 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 15 },
+        { "name": "knockbacks", "value": 12 }
+      ]
+    }
+  ]
+}

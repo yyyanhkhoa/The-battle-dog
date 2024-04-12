@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbx365yymmgo5"]
+
+[ext_resource type="PackedScene" uid="uid://dpgr6rk41h8du" path="res://scenes/characters/cats/base_cat.tscn" id="1_2c8s7"]
+[ext_resource type="Texture2D" uid="uid://dk2qbrhlr0fcu" path="res://scenes/characters/cats/cat/cat.png" id="1_lqadi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls4eq"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_gwlt8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_8csog"]
+resource_name = "attack"
+length = 0.500017
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_g7218"]
+resource_name = "idle"
+length = 0.500017
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_18yy2"]
+resource_name = "knockback"
+length = 0.500017
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.166767, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_t17j0"]
+resource_name = "move"
+length = 0.666685
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4tq8l"]
+_data = {
+"RESET": SubResource("Animation_gwlt8"),
+"attack": SubResource("Animation_8csog"),
+"idle": SubResource("Animation_g7218"),
+"knockback": SubResource("Animation_18yy2"),
+"move": SubResource("Animation_t17j0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eryft"]
+size = Vector2(192, 213)
+
+[node name="Cat" instance=ExtResource("1_2c8s7")]
+z_index = 21
+reward_money = 10
+health = 80
+
+[node name="CollisionShape2D" parent="DanmakuHitbox" index="0"]
+shape = SubResource("RectangleShape2D_ls4eq")
+
+[node name="Character" parent="CharacterAnimation" index="0"]
+position = Vector2(3, -25)
+texture = ExtResource("1_lqadi")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_4tq8l")
+}
+
+[node name="CollisionShape2D" parent="." index="4"]
+position = Vector2(1, -18.5)
+shape = SubResource("RectangleShape2D_eryft")
+
+[node name="RayCast2D" parent="." index="5"]
+position = Vector2(-95, 63)
+metadata/_edit_lock_ = true
+
+[node name="FiniteStateMachine" parent="." index="6"]
+metadata/_edit_lock_ = true

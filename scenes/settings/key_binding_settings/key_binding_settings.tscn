@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4n4sr1k86t62"]
+
+[ext_resource type="Script" path="res://scenes/settings/key_binding_settings/key_binding_settings.gd" id="1_k74n7"]
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="2_du4xw"]
+[ext_resource type="PackedScene" uid="uid://cniblhu062ir" path="res://scenes/popup/popup.tscn" id="3_4jaut"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17qbd"]
+bg_color = Color(0.2068, 0.53674, 0.94, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0196078, 0, 0.721569, 1)
+
+[node name="KeyBindingSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_du4xw")
+script = ExtResource("1_k74n7")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -287.5
+offset_right = 237.0
+offset_bottom = 287.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_du4xw")
+theme_override_styles/panel = SubResource("StyleBoxFlat_17qbd")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 85
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="KeyBindingContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 70.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.0196078, 0, 0.721569, 1)
+theme_override_font_sizes/font_size = 48
+text = "@KEY_BINDING_SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -190.0
+offset_top = 541.0
+offset_right = 190.0
+offset_bottom = 589.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="ResetToDefaultButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_type_variation = &"ButtonRed"
+text = "@RESET_TO_DEFAULT"
+
+[node name="ResetKeyBindingPopup" parent="." instance=ExtResource("3_4jaut")]
+unique_name_in_owner = true
+layout_mode = 1

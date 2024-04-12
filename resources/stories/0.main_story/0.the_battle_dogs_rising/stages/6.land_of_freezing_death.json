@@ -1,0 +1,52 @@
+{
+  "theme": "winter",
+  "music": "battlefield_theme3",
+  "boss_music": "boss_theme2",
+  "stage_width": 5200,
+  "cat_tower_health": 8000,
+  "reward_bone": 80000,
+  "power_scale": 1.25,
+  "spawn_patterns": [
+    {
+      "id": "cat",
+      "interval": 5,
+      "delay": 5
+    },
+    {
+      "id": "leg_cat",
+      "interval": 10,
+      "delay": 10
+    },
+    {
+      "id": "smol_cat",
+      "interval": 7,
+      "delay": 15
+    },
+    {
+      "id": "smol_cat",
+      "interval": 2.5,
+      "delay": 30
+    },
+    {
+      "id": "cat",
+      "interval": 5,
+      "delay": 40.5
+    },
+    {
+      "id": "leg_cat",
+      "interval": 10,
+      "delay": 55
+    }
+  ],
+  "bosses": [
+    {
+      "health_at": 1000,
+      "id": "rolling_cat",
+      "buffs": [
+        { "name": "health", "scale": 15 },
+        { "name": "damage", "scale": 10 },
+        { "name": "reward_money", "scale": 5 }
+      ]
+    }
+  ]
+}

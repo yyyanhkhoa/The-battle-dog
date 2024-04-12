@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvno8d4sb6h0s"]
+
+[ext_resource type="PackedScene" uid="uid://vno8d4sb6h00" path="res://scenes/characters/character_empty_fsm.tscn" id="1_xhikh"]
+[ext_resource type="Script" path="res://scenes/characters/move_state.gd" id="4_5450c"]
+[ext_resource type="Script" path="res://scenes/characters/attack_state.gd" id="5_xi1bt"]
+[ext_resource type="Script" path="res://scenes/characters/knockback_state.gd" id="6_y7l8e"]
+[ext_resource type="Script" path="res://scenes/characters/idle_state.gd" id="6_yu7tv"]
+[ext_resource type="Script" path="res://scenes/characters/die_state.gd" id="7_10dt3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2jxx"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab17j"]
+resource_local_to_scene = true
+size = Vector2(192, 178)
+
+[node name="Character" instance=ExtResource("1_xhikh")]
+
+[node name="CollisionShape2D" parent="DanmakuHitbox" index="0"]
+shape = SubResource("RectangleShape2D_r2jxx")
+
+[node name="CollisionShape2D" parent="." index="4"]
+shape = SubResource("RectangleShape2D_ab17j")
+
+[node name="MoveState" type="Node" parent="FiniteStateMachine" index="0"]
+script = ExtResource("4_5450c")
+
+[node name="AttackState" type="Node" parent="FiniteStateMachine" index="1"]
+script = ExtResource("5_xi1bt")
+
+[node name="IdleState" type="Node" parent="FiniteStateMachine" index="2"]
+script = ExtResource("6_yu7tv")
+
+[node name="KnockbackState" type="Node" parent="FiniteStateMachine" index="3"]
+script = ExtResource("6_y7l8e")
+
+[node name="DieState" type="Node" parent="FiniteStateMachine" index="4"]
+script = ExtResource("7_10dt3")

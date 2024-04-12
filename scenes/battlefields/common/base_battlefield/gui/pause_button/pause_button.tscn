@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://mhk8vyyedlgu"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_s2e4k"]
+[ext_resource type="BitMap" uid="uid://bwbabd5wamyvs" path="res://scenes/battlefields/common/base_battlefield/gui/pause_button/click_mask.png" id="2_ae6ru"]
+[ext_resource type="Texture2D" uid="uid://drmtboiv18k42" path="res://scenes/battlefields/common/base_battlefield/gui/pause_button/pause_button.png" id="2_jyb4p"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_1x6t0"]
+action = &"ui_pause"
+
+[sub_resource type="Shortcut" id="Shortcut_1ljvj"]
+events = [SubResource("InputEventAction_1x6t0")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1r6g"]
+atlas = ExtResource("2_jyb4p")
+region = Rect2(0, 0, 193, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y82t"]
+atlas = ExtResource("2_jyb4p")
+region = Rect2(193, 0, 193, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4cww"]
+atlas = ExtResource("2_jyb4p")
+region = Rect2(386, 0, 193, 197)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62qh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1r6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y82t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4cww")
+}],
+"loop": true,
+"name": &"ready",
+"speed": 3.0
+}]
+
+[node name="PauseButton" type="TextureButton"]
+offset_right = 195.0
+offset_bottom = 189.0
+theme = ExtResource("1_s2e4k")
+shortcut = SubResource("Shortcut_1ljvj")
+texture_click_mask = ExtResource("2_ae6ru")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(97, 99)
+sprite_frames = SubResource("SpriteFrames_62qh2")
+animation = &"ready"
+autoplay = "ready"

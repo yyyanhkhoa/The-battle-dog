@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://xny5rxpmau5y"]
+
+[ext_resource type="Script" path="res://scenes/online_battle/p2p_battlefield/p2p_land/p2p_land.gd" id="1_86d3g"]
+[ext_resource type="Texture2D" uid="uid://bmnxrvwk6nuv3" path="res://resources/battlefield_themes/green_grass/land.png" id="2_q6uhj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg48x"]
+size = Vector2(1352, 20)
+
+[node name="P2PLand" type="StaticBody2D"]
+script = ExtResource("1_86d3g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_dg48x")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = -169.0
+offset_right = 989.0
+offset_bottom = 283.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_q6uhj")
+stretch_mode = 1

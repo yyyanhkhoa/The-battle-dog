@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8qd2ufnklca7"]
+
+[ext_resource type="Script" path="res://scenes/skills/lightning/light.gd" id="1_f5oi1"]
+[ext_resource type="Texture2D" uid="uid://cjeyw3i40mav6" path="res://resources/images/skills/lightning.png" id="2_h0qfj"]
+
+[sub_resource type="Animation" id="Animation_k3r0e"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_pmncx"]
+resource_name = "die"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 1, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_7xwcg"]
+resource_name = "move"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fl247"]
+_data = {
+"RESET": SubResource("Animation_k3r0e"),
+"die": SubResource("Animation_pmncx"),
+"move": SubResource("Animation_7xwcg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oa1yv"]
+resource_local_to_scene = true
+size = Vector2(128, 638.199)
+
+[node name="Lightning" type="CharacterBody2D"]
+z_index = 999
+z_as_relative = false
+collision_layer = 64
+script = ExtResource("1_f5oi1")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_fl247")
+}
+autoplay = "move"
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.10647, -376)
+scale = Vector2(1.42284, 2.72549)
+texture = ExtResource("2_h0qfj")
+hframes = 7
+region_rect = Rect2(4, 4, 178, 185)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.212959, -319)
+shape = SubResource("RectangleShape2D_oa1yv")
+
+[node name="CharacterDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterDetector"]
+position = Vector2(-0.212959, -319)
+shape = SubResource("RectangleShape2D_oa1yv")

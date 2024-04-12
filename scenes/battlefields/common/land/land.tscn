@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjhaavd1ipf1v"]
+
+[ext_resource type="Script" path="res://scenes/battlefields/common/land/land.gd" id="1_2asg5"]
+[ext_resource type="Texture2D" uid="uid://dee0clgixn5ho" path="res://resources/battlefield_themes/green_grass/land.png" id="2_5spf2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg48x"]
+size = Vector2(1352, 279)
+
+[node name="Land" type="StaticBody2D"]
+collision_mask = 0
+script = ExtResource("1_2asg5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = -169.0
+offset_right = 989.0
+offset_bottom = 283.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_5spf2")
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 139.5)
+shape = SubResource("RectangleShape2D_dg48x")

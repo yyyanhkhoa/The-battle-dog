@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvye5slcq68rj"]
+
+[ext_resource type="PackedScene" uid="uid://vno8d4sb6h00" path="res://scenes/characters/character_empty_fsm.tscn" id="1_x8osq"]
+[ext_resource type="Script" path="res://scenes/characters/cats/base_cat.gd" id="2_gb7br"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rplwu"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ud63"]
+resource_local_to_scene = true
+size = Vector2(192, 178)
+
+[node name="BaseCatEmptyFSM" instance=ExtResource("1_x8osq")]
+collision_layer = 4
+collision_mask = 33
+script = ExtResource("2_gb7br")
+reward_money = 0
+character_type = 1
+
+[node name="DanmakuHitbox" parent="." index="0"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="DanmakuHitbox" index="0"]
+shape = SubResource("RectangleShape2D_rplwu")
+
+[node name="CharacterAnimation" parent="." index="2"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="." index="4"]
+shape = SubResource("RectangleShape2D_3ud63")
+metadata/_edit_lock_ = true
+
+[node name="RayCast2D" parent="." index="5"]
+position = Vector2(-96, 64)
+target_position = Vector2(-40, 0)
+collision_mask = 34
+metadata/_edit_lock_ = true
+
+[node name="FiniteStateMachine" parent="." index="6"]
+metadata/_edit_lock_ = true

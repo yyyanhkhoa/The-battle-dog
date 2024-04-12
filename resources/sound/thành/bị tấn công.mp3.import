@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxdtf683h2u5n"
+path="res://.godot/imported/bị tấn công.mp3-e0aa4de416906b152ffc0ae08e6698d4.mp3str"
+
+[deps]
+
+source_file="res://resources/sound/thành/bị tấn công.mp3"
+dest_files=["res://.godot/imported/bị tấn công.mp3-e0aa4de416906b152ffc0ae08e6698d4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

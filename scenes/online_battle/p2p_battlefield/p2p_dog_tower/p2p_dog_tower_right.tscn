@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://inelp1r1r34q"]
+
+[ext_resource type="Script" path="res://scenes/online_battle/p2p_battlefield/p2p_dog_tower/p2p_dog_tower.gd" id="1_kwtn8"]
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="2_hl0vn"]
+[ext_resource type="Texture2D" uid="uid://30y660mghnsm" path="res://resources/battlefield_themes/green_grass/dog_tower.png" id="3_fx2tp"]
+[ext_resource type="AudioStream" uid="uid://dqw6af3cwm06x" path="res://resources/sound/battlefield/spawn.wav" id="4_pp7nx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8inmh"]
+font_size = 52
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vd4k"]
+size = Vector2(408, 1002)
+
+[sub_resource type="Animation" id="Animation_uenk0"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_esujk"]
+resource_name = "fall"
+length = 0.320004
+loop_mode = 1
+step = 0.04
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, -500), Vector2(-4, -500), Vector2(8, -500), Vector2(-4, -500), Vector2(8, -500), Vector2(-4, -500), Vector2(8, -500), Vector2(-4, -500)]
+}
+
+[sub_resource type="Animation" id="Animation_1vn7f"]
+resource_name = "fall"
+length = 0.320004
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, -500), Vector2(-4, -500), Vector2(8, -500), Vector2(-4, -500), Vector2(8, -500), Vector2(-4, -500), Vector2(8, -500), Vector2(-4, -500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qra5t"]
+_data = {
+"RESET": SubResource("Animation_uenk0"),
+"fall": SubResource("Animation_esujk"),
+"shake": SubResource("Animation_1vn7f")
+}
+
+[node name="P2PDogTowerRight" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_kwtn8")
+direction = 1
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = -972.0
+offset_top = 60.0
+offset_right = 962.0
+offset_bottom = 135.0
+size_flags_horizontal = 4
+theme = ExtResource("2_hl0vn")
+text = "500/500 HP"
+label_settings = SubResource("LabelSettings_8inmh")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -500)
+scale = Vector2(-1, 1)
+texture = ExtResource("3_fx2tp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -473)
+shape = SubResource("RectangleShape2D_5vd4k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qra5t")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-38, -186)
+gizmo_extents = 54.5
+
+[node name="SpawnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pp7nx")
+bus = &"InBattleFX"

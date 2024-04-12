@@ -1,0 +1,129 @@
+[gd_scene load_steps=13 format=3 uid="uid://cej6d6yttbp24"]
+
+[ext_resource type="PackedScene" uid="uid://14rtm3qx0p7g" path="res://scenes/characters/cats/air_unit_cat.tscn" id="1_ip1h5"]
+[ext_resource type="Texture2D" uid="uid://cvsuq7wsbpw1a" path="res://scenes/characters/cats/sunflower_fairy_cat/sunflower_fairy_cat.png" id="2_621ji"]
+[ext_resource type="Script" path="res://scenes/characters/cats/sunflower_fairy_cat/sunflower_fairy_cat.gd" id="2_xipsq"]
+[ext_resource type="Script" path="res://scenes/characters/cats/sunflower_fairy_cat/attack_state.gd" id="3_2mx4u"]
+[ext_resource type="AudioStream" uid="uid://c5wnv78ernv77" path="res://scenes/characters/dogs/miko_dog/se_tan00.wav" id="3_wqln7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q37wh"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_gwlt8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_18yy2"]
+resource_name = "knockback"
+length = 0.500017
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_t17j0"]
+resource_name = "move"
+length = 0.666685
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333334, 0.500001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xot00"]
+_data = {
+"RESET": SubResource("Animation_gwlt8"),
+"knockback": SubResource("Animation_18yy2"),
+"move": SubResource("Animation_t17j0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynec5"]
+resource_local_to_scene = true
+size = Vector2(220, 178)
+
+[sub_resource type="Curve2D" id="Curve2D_awinv"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 86.7271, -1.24723, -86.7271, 1.24723, -280, -55, 0, 0, 0, 0, -550, 12)
+}
+point_count = 3
+
+[node name="SunflowerFairyCat" instance=ExtResource("1_ip1h5")]
+script = ExtResource("2_xipsq")
+movement_radius = 100
+speed = 200
+attack_range = 2000
+attack_cooldown = 10.0
+health = 700
+knockbacks = 1
+attack_hit_sfx = ExtResource("3_wqln7")
+
+[node name="CollisionShape2D" parent="DanmakuHitbox" index="0"]
+shape = SubResource("RectangleShape2D_q37wh")
+
+[node name="AttackCooldownTimer" parent="." index="1"]
+wait_time = 10.0
+
+[node name="Character" parent="CharacterAnimation" index="0"]
+position = Vector2(-40, -69)
+texture = ExtResource("2_621ji")
+hframes = 1
+vframes = 7
+
+[node name="BulletSpawnMarker" type="Marker2D" parent="CharacterAnimation" index="1"]
+unique_name_in_owner = true
+position = Vector2(-298, -39)
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_xot00")
+}
+autoplay = "move"
+
+[node name="CollisionShape2D" parent="." index="4"]
+shape = SubResource("RectangleShape2D_ynec5")
+
+[node name="RayCast2D" parent="." index="5"]
+position = Vector2(2110, -1)
+target_position = Vector2(-4220, 0)
+
+[node name="IdleState" parent="FiniteStateMachine" index="1"]
+wait_time_min = 1.0
+
+[node name="Path2D" parent="FiniteStateMachine/MoveState" index="0"]
+curve = SubResource("Curve2D_awinv")
+
+[node name="AttackState" parent="FiniteStateMachine" index="3"]
+script = ExtResource("3_2mx4u")
+continue_previous_movement = false

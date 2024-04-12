@@ -1,0 +1,11 @@
+keys,vi,en
+@PASSIVE_NAME_money_efficiency,Năng suất Lao động,Workforce Productivity
+@PASSIVE_DESCRIPTION_money_efficiency,Năng suất lao động của giai cấp Chó công - nông. Độ hiệu quả của tiền thụ động được tạo ra trong trận đấu được tăng lên.,Workforce productivity of the working class Dogs. Increases money generation efficiency in battle.
+@PASSIVE_NAME_wallet_capacity,Sức chứa Kho bạc,Treasury Capacity
+@PASSIVE_DESCRIPTION_wallet_capacity,Kho bạc nhà nước. Tăng số tiền tối đa có thể chứa được trong trận đấu.,National Treasury. Increases the maximum amount of money that can be stored in a battle.
+@PASSIVE_NAME_dog_tower_health,Sức chống cự Thành Chó,Dog Tower's Durability
+@PASSIVE_DESCRIPTION_dog_tower_health,Quyết không để thành bị sụp đổ! Tăng lượng máu ban đầu của Thành Chó.,Protect the Dog Tower at all cost! Increases the base health of Dog Tower.
+@PASSIVE_NAME_bone_reward_up,Nghiên cứu và phát triển,R&D
+@PASSIVE_DESCRIPTION_bone_reward_up,Nghiên cứu công nghệ chiếm được từ loài Mèo! Tăng số Xương nhận được sau mỗi trận đấu.,Research Cat's technology stolen after battle! Increases the number of Bones rewarded after a battle.
+@PASSIVE_NAME_gandolfg,Gandolfg (Phù thủy canh Thành),Gandolfg (Defense Wizard)
+@PASSIVE_DESCRIPTION_gandolfg,Phù thủy Chó mũ xám Gandolfg đến từ vùng đất Endog. Ông có khả năng triệu hồi quả cầu điện để đánh bọn Mèo nào dám lại gần Thành Chó. Cầu điện gây sát thương diện rộng.,A wizard wearing a gray hat from the land of Endog named Gandolfg the Dog. He can summon electric balls to attack any Cat that dare to step near the Dog Tower. Electric ball performs area attack.

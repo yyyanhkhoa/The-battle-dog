@@ -1,0 +1,129 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg888vut0itgh"]
+
+[ext_resource type="Material" uid="uid://dhtv2icxbag82" path="res://shaders/sky/sky.material" id="1_4jo4h"]
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_ng0f1"]
+[ext_resource type="Script" path="res://scenes/credits/credits.gd" id="2_oon5g"]
+[ext_resource type="Texture2D" uid="uid://xb7r40nr2rgp" path="res://resources/battlefield_themes/heavenly/sky.png" id="3_hlg0i"]
+[ext_resource type="Shortcut" uid="uid://krf4dorlu4cx" path="res://resources/shortcuts/cancel.tres" id="4_q8e3c"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ng0f1")
+script = ExtResource("2_oon5g")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource("1_4jo4h")
+layout_mode = 0
+offset_top = -264.0
+offset_right = 3072.0
+offset_bottom = 2184.0
+scale = Vector2(0.380205, 0.380205)
+texture = ExtResource("3_hlg0i")
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -20.0
+offset_right = 26.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameDescription" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelLarge"
+theme_override_colors/font_outline_color = Color(0.490196, 0, 0.819608, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 64
+text = "The Battle Dogs @2023 v1.8"
+
+[node name="CMB" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.490196, 0, 0.819608, 1)
+text = "Made with Godot Engine 4"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="MadeBy" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelLarge"
+text = "@CREDIT_MADE_BY"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CMB" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cỏ May Bay (Thái Chí Bảo): "
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "@CREDIT_CMB"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AnhKhoa" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Trần Anh Khoa: "
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "@CREDIT_TAK"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="SpecialThanks" type="Label" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_type_variation = &"LabelLarge"
+text = "@CREDIT_SPECIAL_THANKS"
+
+[node name="RigorMoris" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "@CREDIT_RIGOR_MORTIS"
+
+[node name="Bilitis" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "@CREDIT_BILITIS"
+
+[node name="MusMus" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "@CREDIT_MUSMUS"
+
+[node name="Mixkit" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "@CREDIT_MIXKIT"
+
+[node name="Pixabay" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "@CREDIT_PIXABAY"
+
+[node name="GoBackButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -566.0
+offset_top = 10.0
+offset_right = -364.0
+offset_bottom = 58.0
+grow_horizontal = 2
+focus_mode = 0
+shortcut = ExtResource("4_q8e3c")
+text = "@BACK"

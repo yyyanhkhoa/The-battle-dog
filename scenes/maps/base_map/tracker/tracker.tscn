@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://i3waaqjv5m7"]
+
+[ext_resource type="Script" path="res://scenes/maps/base_map/tracker/tracker.gd" id="1_jqbai"]
+
+[node name="Tracker" type="Node2D"]
+script = ExtResource("1_jqbai")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0

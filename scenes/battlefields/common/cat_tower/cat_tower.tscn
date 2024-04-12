@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://q3xac7wpx0wx"]
+
+[ext_resource type="Script" path="res://scenes/battlefields/common/cat_tower/cat_tower.gd" id="1_52k0t"]
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="2_ff43w"]
+[ext_resource type="PackedScene" path="res://scenes/battlefields/common/enemy_spawn_point/enemy_spawn_point.tscn" id="3_b34sc"]
+[ext_resource type="Texture2D" uid="uid://dod3tivt7kkew" path="res://resources/battlefield_themes/green_grass/cat_tower.png" id="3_xbiff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3rt7"]
+size = Vector2(408, 1002)
+
+[sub_resource type="Animation" id="Animation_uenk0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -500)]
+}
+
+[sub_resource type="Animation" id="Animation_esujk"]
+resource_name = "fall"
+length = 0.320004
+loop_mode = 1
+step = 0.04
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, -500), Vector2(-4, -500), Vector2(8, -500), Vector2(-4, -500), Vector2(8, -500), Vector2(-4, -500), Vector2(8, -500), Vector2(-4, -500)]
+}
+
+[sub_resource type="Animation" id="Animation_1vn7f"]
+resource_name = "fall"
+length = 0.320004
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, -500), Vector2(-4, -500), Vector2(8, -500), Vector2(-4, -500), Vector2(8, -500), Vector2(-4, -500), Vector2(0, -500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qra5t"]
+_data = {
+"RESET": SubResource("Animation_uenk0"),
+"fall": SubResource("Animation_esujk"),
+"shake": SubResource("Animation_1vn7f")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_8inmh"]
+font_size = 52
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CatTower" type="StaticBody2D" node_paths=PackedStringArray("spawn_point")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_52k0t")
+spawn_point = NodePath("SpawnPoint")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -500)
+texture = ExtResource("3_xbiff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -473)
+shape = SubResource("RectangleShape2D_n3rt7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qra5t")
+}
+
+[node name="EffectMarker" type="Marker2D" parent="."]
+position = Vector2(-67, -186)
+gizmo_extents = 30.0
+
+[node name="SpawnPoint" parent="." node_paths=PackedStringArray("knockback_energy_expand_point") instance=ExtResource("3_b34sc")]
+position = Vector2(-100, 0)
+knockback_energy_expand_point = NodePath("../EffectMarker")
+
+[node name="HealthLabel" type="Label" parent="."]
+z_index = 999
+offset_left = -972.0
+offset_top = 60.0
+offset_right = 962.0
+offset_bottom = 135.0
+size_flags_horizontal = 4
+theme = ExtResource("2_ff43w")
+text = "500/500 HP"
+label_settings = SubResource("LabelSettings_8inmh")
+horizontal_alignment = 1

@@ -1,0 +1,8 @@
+[
+  {
+    "ID": "fire_ball",
+    "price": 2000,
+    "spawn_time": 45,
+    "max": 3
+  }
+]

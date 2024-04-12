@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0jrn2xo773qv"]
+
+[ext_resource type="PackedScene" uid="uid://bj0cb0c3284hb" path="res://scenes/common/buttons/icon_button/icon_button.tscn" id="1_5s50b"]
+[ext_resource type="Script" path="res://scenes/common/buttons/go_back_button/go_back_button.gd" id="2_4m21i"]
+[ext_resource type="Shortcut" uid="uid://krf4dorlu4cx" path="res://resources/shortcuts/cancel.tres" id="2_abvyu"]
+[ext_resource type="Texture2D" uid="uid://dwdimkknfyu4b" path="res://scenes/common/buttons/go_back_button/go_back_icon.png" id="2_mb26q"]
+
+[node name="GoBackButton" instance=ExtResource("1_5s50b")]
+shortcut = ExtResource("2_abvyu")
+script = ExtResource("2_4m21i")
+
+[node name="Icon" parent="." index="1"]
+texture = ExtResource("2_mb26q")

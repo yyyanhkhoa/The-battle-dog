@@ -1,0 +1,10 @@
+[gd_resource type="Shortcut" load_steps=3 format=3 uid="uid://moipqlm5cofg"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ehdw2"]
+action = &"ui_confirm"
+
+[sub_resource type="InputEventAction" id="InputEventAction_r72o6"]
+action = &"ui_confirm_default"
+
+[resource]
+events = [SubResource("InputEventAction_ehdw2"), SubResource("InputEventAction_r72o6")]

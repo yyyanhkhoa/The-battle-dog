@@ -1,0 +1,155 @@
+[gd_scene load_steps=8 format=3 uid="uid://da1jal8d6xyt3"]
+
+[ext_resource type="Texture2D" uid="uid://4dgy5g3oucek" path="res://resources/images/dog_base/header.png" id="1_6iv5g"]
+[ext_resource type="Script" path="res://scenes/main_gui/main_gui.gd" id="1_64sa2"]
+[ext_resource type="Texture2D" uid="uid://ddd02ni0o7cr7" path="res://resources/images/dog_base/dogbase_background.png" id="1_gae5p"]
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_lv0ii"]
+[ext_resource type="Texture2D" uid="uid://b35jkv4tsll0t" path="res://resources/images/dog_base/footer.png" id="2_ts6wt"]
+[ext_resource type="PackedScene" uid="uid://d0jrn2xo773qv" path="res://scenes/common/buttons/go_back_button/go_back_button.tscn" id="5_a24hl"]
+[ext_resource type="Texture2D" uid="uid://bnp7cvbuvml6e" path="res://resources/images/bone.png" id="5_gf3n3"]
+
+[node name="MainGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lv0ii")
+script = ExtResource("1_64sa2")
+title = "Title - Title"
+go_back_scene_path = "res://scenes/start_menu/main.tscn"
+
+[node name="BackGroundRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gae5p")
+
+[node name="HeaderRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 59.0
+grow_horizontal = 2
+texture = ExtResource("1_6iv5g")
+
+[node name="Khung" type="VBoxContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="VBoxContainer" parent="Khung"]
+custom_minimum_size = Vector2(0, 59)
+layout_direction = 1
+layout_mode = 2
+localize_numeral_system = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Khung/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Khung/Header/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Control" type="Control" parent="Khung/Header/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(87, 0)
+layout_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Khung/Header/MarginContainer/HBoxContainer/Control"]
+
+[node name="GoBackButton" parent="Khung/Header/MarginContainer/HBoxContainer/Control/CanvasLayer" instance=ExtResource("5_a24hl")]
+unique_name_in_owner = true
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 97.0
+offset_bottom = 97.0
+focus_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Khung/Header/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_type_variation = &"LabelLarge"
+text = "<DOG_BASE_TITLE>"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Khung/Header/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Money" type="Label" parent="Khung/Header/MarginContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"LabelLarge"
+text = "15000"
+
+[node name="Sprite2D" type="TextureRect" parent="Khung/Header/MarginContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("5_gf3n3")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Content" type="Control" parent="Khung"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Footer" type="VBoxContainer" parent="Khung"]
+custom_minimum_size = Vector2(0, 59)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+localize_numeral_system = false
+
+[node name="TieuDe" type="HBoxContainer" parent="Khung/Footer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ThucAnChoCho" type="HBoxContainer" parent="Khung/Footer/TieuDe"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Khung/Footer/TieuDe/ThucAnChoCho"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="DogFoodLabel" type="Label" parent="Khung/Footer/TieuDe/ThucAnChoCho/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelLarge"
+text = "Thức ăn cho Chó : 100"
+horizontal_alignment = 2
+
+[node name="FooterRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_ts6wt")

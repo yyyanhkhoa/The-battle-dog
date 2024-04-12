@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://uckf14xmlveo"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_avt3p"]
+[ext_resource type="Script" path="res://scenes/settings/key_binding_settings/key_binding_box/key_binding_box.gd" id="2_khpm3"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 384.0
+offset_bottom = 48.0
+theme = ExtResource("1_avt3p")
+theme_type_variation = &"PanelDimBlue"
+script = ExtResource("2_khpm3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"PanelDimBlue"
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ActionLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<ActionName>"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_type_variation = &"ButtonRound"
+text = "<KeyName>"

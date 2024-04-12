@@ -1,0 +1,30 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5yrc0d7vcas8"]
+
+[ext_resource type="PackedScene" uid="uid://culho3ivbdqd3" path="res://scenes/battlefields/common/base_battlefield/base_battlefield.tscn" id="1_bie0n"]
+[ext_resource type="Script" path="res://scenes/battlefields/basic_battlefield/basic_battlefield.gd" id="2_7uiia"]
+[ext_resource type="PackedScene" uid="uid://cjhaavd1ipf1v" path="res://scenes/battlefields/common/land/land.tscn" id="2_t0jud"]
+[ext_resource type="Script" path="res://scenes/battlefields/basic_battlefield/basic_sky.gd" id="3_2sntm"]
+[ext_resource type="PackedScene" uid="uid://lyrmnwxclfgn" path="res://scenes/battlefields/common/dog_tower/dog_tower.tscn" id="4_pwf8e"]
+[ext_resource type="Script" path="res://scenes/battlefields/basic_battlefield/basic_land.gd" id="4_wx0qe"]
+[ext_resource type="PackedScene" uid="uid://q3xac7wpx0wx" path="res://scenes/battlefields/common/cat_tower/cat_tower.tscn" id="5_fl851"]
+[ext_resource type="Script" path="res://scenes/battlefields/basic_battlefield/baisc_dog_tower.gd" id="6_y74j3"]
+[ext_resource type="Script" path="res://scenes/battlefields/basic_battlefield/basic_cat_tower.gd" id="8_65u8u"]
+
+[node name="BasicBattlefield" node_paths=PackedStringArray("cat_tower", "dog_tower", "land") instance=ExtResource("1_bie0n")]
+script = ExtResource("2_7uiia")
+cat_tower = NodePath("CatTower")
+dog_tower = NodePath("DogTower")
+land = NodePath("Land")
+
+[node name="Sky" parent="." index="3"]
+script = ExtResource("3_2sntm")
+
+[node name="Land" parent="." index="4" instance=ExtResource("2_t0jud")]
+script = ExtResource("4_wx0qe")
+
+[node name="DogTower" parent="." index="5" instance=ExtResource("4_pwf8e")]
+script = ExtResource("6_y74j3")
+
+[node name="CatTower" parent="." index="6" instance=ExtResource("5_fl851")]
+position = Vector2(1003, 0)
+script = ExtResource("8_65u8u")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf8mg66e2j6jc"]
+
+[ext_resource type="Script" path="res://scenes/skills/drum/drum.gd" id="2_01l4y"]
+
+[node name="Node" type="Node2D"]
+script = ExtResource("2_01l4y")

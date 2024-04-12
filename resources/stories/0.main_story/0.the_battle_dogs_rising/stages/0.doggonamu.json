@@ -1,0 +1,19 @@
+{
+  "theme": "green_grass",
+  "music": "battlefield_theme1",
+  "stage_width": 3000,
+  "cat_tower_health": 500,
+  "reward_bone": 2000,
+  "spawn_patterns": [
+    {
+      "id": "cat",
+      "interval": 5,
+      "delay": 5
+    },
+    {
+      "id": "cat",
+      "interval": 10,
+      "delay": 20
+    }
+  ]
+}

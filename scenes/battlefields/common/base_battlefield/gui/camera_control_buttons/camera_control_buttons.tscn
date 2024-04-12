@@ -1,0 +1,337 @@
+[gd_scene load_steps=28 format=3 uid="uid://cei0cobk4qs0j"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_l4l6m"]
+[ext_resource type="Texture2D" uid="uid://8mxd3pp6wqb8" path="res://scenes/battlefields/common/base_battlefield/gui/camera_control_buttons/camera_control_icons.png" id="1_xqhq0"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/gui/camera_control_buttons/camera_control_buttons.gd" id="1_yfkw5"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_2airf"]
+action = &"ui_left"
+
+[sub_resource type="Shortcut" id="Shortcut_57jpa"]
+events = [SubResource("InputEventAction_2airf")]
+
+[sub_resource type="Animation" id="Animation_noh03"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_gca11"]
+resource_name = "off"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_f2qfw"]
+resource_name = "on"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fxg3"]
+_data = {
+"RESET": SubResource("Animation_noh03"),
+"off": SubResource("Animation_gca11"),
+"on": SubResource("Animation_f2qfw")
+}
+
+[sub_resource type="InputEventAction" id="InputEventAction_g6jk1"]
+action = &"ui_right"
+
+[sub_resource type="Shortcut" id="Shortcut_c5v6m"]
+events = [SubResource("InputEventAction_g6jk1")]
+
+[sub_resource type="Animation" id="Animation_f7ke6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xhc56"]
+resource_name = "off"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_e5qgw"]
+resource_name = "on"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tsv7a"]
+_data = {
+"RESET": SubResource("Animation_f7ke6"),
+"off": SubResource("Animation_xhc56"),
+"on": SubResource("Animation_e5qgw")
+}
+
+[sub_resource type="InputEventAction" id="InputEventAction_ygxuu"]
+action = &"ui_zoomout"
+
+[sub_resource type="Shortcut" id="Shortcut_7l7jn"]
+events = [SubResource("InputEventAction_ygxuu")]
+
+[sub_resource type="Animation" id="Animation_86iik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_cg2g0"]
+resource_name = "off"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [12, 13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_3pigk"]
+resource_name = "on"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [15, 16, 17]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3iyas"]
+_data = {
+"RESET": SubResource("Animation_86iik"),
+"off": SubResource("Animation_cg2g0"),
+"on": SubResource("Animation_3pigk")
+}
+
+[sub_resource type="InputEventAction" id="InputEventAction_pawkt"]
+action = &"ui_zoomin"
+
+[sub_resource type="Shortcut" id="Shortcut_e22jf"]
+events = [SubResource("InputEventAction_pawkt")]
+
+[sub_resource type="Animation" id="Animation_s25qd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [18]
+}
+
+[sub_resource type="Animation" id="Animation_wmc7y"]
+resource_name = "off"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_rbqgn"]
+resource_name = "on"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [21, 22, 23]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hhd5p"]
+_data = {
+"RESET": SubResource("Animation_s25qd"),
+"off": SubResource("Animation_wmc7y"),
+"on": SubResource("Animation_rbqgn")
+}
+
+[node name="camera_control_buttons" type="HBoxContainer"]
+theme = ExtResource("1_l4l6m")
+theme_override_constants/separation = 5
+script = ExtResource("1_yfkw5")
+
+[node name="MoveLeft" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+focus_mode = 0
+shortcut = SubResource("Shortcut_57jpa")
+
+[node name="Sprite2D" type="Sprite2D" parent="MoveLeft"]
+position = Vector2(16, 16)
+texture = ExtResource("1_xqhq0")
+hframes = 5
+vframes = 5
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MoveLeft"]
+libraries = {
+"": SubResource("AnimationLibrary_3fxg3")
+}
+autoplay = "off"
+
+[node name="MoveRight" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+focus_mode = 0
+shortcut = SubResource("Shortcut_c5v6m")
+
+[node name="Sprite2D" type="Sprite2D" parent="MoveRight"]
+position = Vector2(10, 16)
+texture = ExtResource("1_xqhq0")
+hframes = 5
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MoveRight"]
+libraries = {
+"": SubResource("AnimationLibrary_tsv7a")
+}
+autoplay = "off"
+
+[node name="ZoomOut" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+focus_mode = 0
+shortcut = SubResource("Shortcut_7l7jn")
+
+[node name="Sprite2D" type="Sprite2D" parent="ZoomOut"]
+position = Vector2(16, 16)
+texture = ExtResource("1_xqhq0")
+hframes = 5
+vframes = 5
+frame = 12
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ZoomOut"]
+libraries = {
+"": SubResource("AnimationLibrary_3iyas")
+}
+autoplay = "off"
+
+[node name="ZoomIn" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+focus_mode = 0
+shortcut = SubResource("Shortcut_e22jf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ZoomIn"]
+position = Vector2(16, 16)
+texture = ExtResource("1_xqhq0")
+hframes = 5
+vframes = 5
+frame = 18
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ZoomIn"]
+libraries = {
+"": SubResource("AnimationLibrary_hhd5p")
+}
+autoplay = "off"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

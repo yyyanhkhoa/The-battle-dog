@@ -1,0 +1,9 @@
+keys,vi,en
+@STORE_NAME_nuclear_bomb,Bom nguyên tử,Nuclear bomb
+@STORE_DESCRIPTION_nuclear_bomb,"Quét sách mọi quân lính trên bản đồ (Nếu ta không thể thắng, vậy thì ngươi cũng vậy)",Remove every soldiers on the map (If we can't win then so be it)
+@STORE_NAME_full_money,Năng suất lao động cấp tối đa,Max level of workforce productivity
+@STORE_DESCRIPTION_full_money,Năng suất lao động trong trận đấu của bạn sẽ đạt cấp tối đa. Bạn giờ sẽ không cần tốn tiền để nâng cấp năng suất lao động trong trận này,Level of workforce productivity of the working class Dogs will be max level
+@STORE_NAME_random_fire_ball,Cầu lửa ngẫu nhiên,Random fire ball
+@STORE_DESCRIPTION_random_fire_ball,Tạo cơn mưa cầu lửa gây sát thương lớn lên kẻ địch trong suốt thời gian trận đấu. Cầu lửa gây sát thương đơn mục tiêu. Sức mạnh của cầu lửa tăng theo cấp của kỹ năng mưa cầu lửa.,Creates a rain of fireballs that deals great damage to enemies throughout the match. Fireball deals single target damage. The power of fireballs increases with the level of the Fireball's skill.
+@STORE_NAME_titan_dog,Chó Titan,Titan dog
+@STORE_DESCRIPTION_titan_dog,"Triệu hồi một con chó với lượng máu khổng lồ. Chó titan không thể tấn công, nhưng sẽ gây sát thương theo thời gian","Summon a dog with a huge amount of health. Titan dogs cannot attack, but will deal damage over time"

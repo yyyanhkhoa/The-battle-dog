@@ -1,0 +1,87 @@
+[gd_scene load_steps=17 format=3 uid="uid://dilhyhh5l8d0j"]
+
+[ext_resource type="PackedScene" uid="uid://culho3ivbdqd3" path="res://scenes/battlefields/common/base_battlefield/base_battlefield.tscn" id="1_wnhqi"]
+[ext_resource type="Script" path="res://scenes/battlefields/shrine_maiden_battlefield/shrine_maiden_battlefield.gd" id="2_hompa"]
+[ext_resource type="PackedScene" uid="uid://d2x7bp0oc88jh" path="res://scenes/battlefields/common/land_water/land_water.tscn" id="2_neb5b"]
+[ext_resource type="Texture2D" uid="uid://byjq7pl8g55fe" path="res://resources/images/battlefield/dog_tower_land.png" id="3_5rm1g"]
+[ext_resource type="Shader" path="res://shaders/sky/sky.gdshader" id="3_sungo"]
+[ext_resource type="PackedScene" uid="uid://lyrmnwxclfgn" path="res://scenes/battlefields/common/dog_tower/dog_tower.tscn" id="4_4mlb0"]
+[ext_resource type="PackedScene" uid="uid://jgoappkmvbcd" path="res://scenes/battlefields/shrine_maiden_battlefield/hakurei_shrine/hakurei_shrine.tscn" id="4_6wp4w"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/water_reflection/reflection.gd" id="6_enbdi"]
+[ext_resource type="Material" uid="uid://dh4v3vpys04rn" path="res://shaders/water_reflection/water_reflection.tres" id="6_jh57v"]
+[ext_resource type="Texture2D" uid="uid://f7ttqqnis37x" path="res://resources/images/godot.svg" id="7_n3ed8"]
+[ext_resource type="PackedScene" uid="uid://c2a1mjshryixe" path="res://scenes/battlefields/shrine_maiden_battlefield/tori/tori.tscn" id="7_q2m0b"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3og61"]
+noise_type = 3
+frequency = 0.0466
+fractal_gain = -0.455
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_477bh"]
+seamless = true
+noise = SubResource("FastNoiseLite_3og61")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rdvek"]
+noise_type = 3
+frequency = 0.0121
+fractal_gain = -0.1
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f32ow"]
+seamless = true
+noise = SubResource("FastNoiseLite_rdvek")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_andvq"]
+shader = ExtResource("3_sungo")
+shader_parameter/sky_wiggle = 10.0
+shader_parameter/noise_speed_scale = 0.075
+shader_parameter/noise_wiggle = 70.0
+shader_parameter/intensity = 0.08
+shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/speed_scale = 0.025
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_477bh")
+shader_parameter/noise_texture_2 = SubResource("NoiseTexture2D_f32ow")
+
+[node name="ShrineMaidenBattlefield" node_paths=PackedStringArray("cat_tower", "dog_tower", "land") instance=ExtResource("1_wnhqi")]
+script = ExtResource("2_hompa")
+cat_tower = NodePath("HakureiShrine")
+dog_tower = NodePath("DogTower")
+land = NodePath("LandWater")
+
+[node name="LandWater" parent="." index="2" instance=ExtResource("2_neb5b")]
+z_index = -1
+
+[node name="DogTowerLand" type="Sprite2D" parent="." index="3"]
+position = Vector2(714, 163)
+texture = ExtResource("3_5rm1g")
+
+[node name="DogTower" parent="." index="4" instance=ExtResource("4_4mlb0")]
+position = Vector2(895, 0)
+
+[node name="HakureiShrine" parent="." index="5" instance=ExtResource("4_6wp4w")]
+position = Vector2(4097, -1138)
+
+[node name="Tori" parent="." index="6" instance=ExtResource("7_q2m0b")]
+position = Vector2(2594, 0)
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="." index="7"]
+z_index = 100
+copy_mode = 2
+
+[node name="Reflection" type="Sprite2D" parent="." index="8"]
+unique_name_in_owner = true
+z_index = 100
+material = ExtResource("6_jh57v")
+position = Vector2(0, -6)
+scale = Vector2(28.5062, 3.78125)
+texture = ExtResource("7_n3ed8")
+centered = false
+script = ExtResource("6_enbdi")
+
+[node name="Sky" parent="." index="10"]
+z_index = -1
+material = SubResource("ShaderMaterial_andvq")
+
+[node name="EffectSpace" parent="." index="11"]
+z_index = 99

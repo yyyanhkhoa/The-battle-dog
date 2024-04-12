@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmhx2wpadmcol"]
+
+[ext_resource type="PackedScene" uid="uid://e7fcshjccrpt" path="res://scenes/battlefields/common/base_battlefield/gui/spawn_buttons/spawn_buttons.tscn" id="1_2pq88"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/gui/gui.gd" id="1_e3bvc"]
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="3_72yr3"]
+[ext_resource type="PackedScene" uid="uid://b428rqk33viy3" path="res://scenes/battlefields/common/base_battlefield/gui/skill_buttons/skill_buttons.tscn" id="3_s16rg"]
+[ext_resource type="PackedScene" uid="uid://dkth5pxwuxfbt" path="res://scenes/battlefields/common/base_battlefield/gui/game_speed_button/game_speed_button.tscn" id="4_3i3bf"]
+[ext_resource type="PackedScene" uid="uid://dmdc60cjuki5p" path="res://scenes/battlefields/common/base_battlefield/gui/efficiency_up_button/efficiency_up_button.tscn" id="4_3sbug"]
+[ext_resource type="PackedScene" uid="uid://mhk8vyyedlgu" path="res://scenes/battlefields/common/base_battlefield/gui/pause_button/pause_button.tscn" id="5_n23wx"]
+[ext_resource type="PackedScene" uid="uid://btbidqri5t7cx" path="res://scenes/battlefields/common/base_battlefield/gui/pause_menu/pause_menu.tscn" id="6_atit2"]
+[ext_resource type="PackedScene" uid="uid://cei0cobk4qs0j" path="res://scenes/battlefields/common/base_battlefield/gui/camera_control_buttons/camera_control_buttons.tscn" id="8_hlrc2"]
+
+[node name="Gui" type="CanvasLayer"]
+script = ExtResource("1_e3bvc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -316.0
+offset_top = 22.0
+offset_right = 1792.0
+offset_bottom = 316.0
+grow_horizontal = 2
+scale = Vector2(0.35, 0.35)
+alignment = 1
+
+[node name="SpawnButtons" parent="HBoxContainer" instance=ExtResource("1_2pq88")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MoneyLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 260.0
+offset_top = 124.0
+offset_right = 370.0
+offset_bottom = 172.0
+theme = ExtResource("3_72yr3")
+theme_type_variation = &"LabelLarge"
+text = "0/100 ₵"
+
+[node name="GameSpeedButton" parent="." instance=ExtResource("4_3i3bf")]
+offset_left = 780.0
+offset_top = 121.0
+offset_right = 899.0
+offset_bottom = 178.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -566.0
+offset_top = -441.911
+offset_right = -566.0
+offset_bottom = -441.911
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.35, 0.35)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+alignment = 1
+
+[node name="SkillButtons" parent="HBoxContainer2" instance=ExtResource("3_s16rg")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EfficiencyUpButton" parent="." instance=ExtResource("4_3sbug")]
+offset_left = -36.0
+offset_top = -40.0
+offset_right = 346.0
+offset_bottom = 337.0
+scale = Vector2(0.585068, 0.585068)
+
+[node name="PauseButton" parent="." instance=ExtResource("5_n23wx")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -104.0
+offset_top = 19.0
+offset_right = 87.0
+offset_bottom = 212.0
+grow_horizontal = 0
+scale = Vector2(0.45, 0.45)
+
+[node name="CameraControlButtons" parent="." instance=ExtResource("8_hlrc2")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 59.0
+offset_top = 134.0
+offset_right = 199.0
+offset_bottom = 166.0
+grow_horizontal = 2
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_atit2")]
+layer = 2
+visible = false

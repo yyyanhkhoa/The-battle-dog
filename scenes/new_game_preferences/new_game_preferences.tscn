@@ -1,0 +1,329 @@
+[gd_scene load_steps=11 format=3 uid="uid://btwac1pavheoi"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_d6kbo"]
+[ext_resource type="Script" path="res://scenes/new_game_preferences/new_game_preferences.gd" id="2_wbix1"]
+[ext_resource type="Texture2D" uid="uid://dtvyuuaxygrsr" path="res://scenes/characters/dogs/dog/dog.png" id="3_4eus3"]
+[ext_resource type="AudioStream" uid="uid://bn02txfx86axw" path="res://resources/sound/upgrade.mp3" id="3_x07gs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhgdm"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_5p0av"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialPreference/SpeakerDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TutorialPreference/SpeakerDog:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(165, 606)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TutorialPreference/SpeakerDog:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_gajgk"]
+resource_name = "dog_idle"
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialPreference/SpeakerDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_lvvmh"]
+resource_name = "dog_jump_off"
+length = 1.5
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialPreference/SpeakerDog:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(165, 606), Vector2(201, 540), Vector2(330, 783)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TutorialPreference/SpeakerDog:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.14159, 3.20553, 3.55696]
+}
+
+[sub_resource type="Animation" id="Animation_3ytie"]
+resource_name = "dog_jump_up"
+length = 1.5
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialPreference/SpeakerDog:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(165, 606), Vector2(183, 360), Vector2(247, 497)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TutorialPreference/SpeakerDog:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.14159, 3.05168, 3.09699]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qgnjr"]
+_data = {
+"RESET": SubResource("Animation_5p0av"),
+"dog_idle": SubResource("Animation_gajgk"),
+"dog_jump_off": SubResource("Animation_lvvmh"),
+"dog_jump_up": SubResource("Animation_3ytie")
+}
+
+[node name="NewGamePreferences" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d6kbo")
+script = ExtResource("2_wbix1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jhgdm")
+
+[node name="LanguagePreference" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LanguagePreference"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -87.0
+offset_right = 121.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "@LANGUAGE_PREFERENCE"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LanguagePreference"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -29.0
+offset_right = 76.5
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="ButtonEnglish" type="Button" parent="LanguagePreference/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ENGLISH"
+
+[node name="ButtonVietnamese" type="Button" parent="LanguagePreference/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "TIẾNG VIỆT"
+
+[node name="FullscreenPreference" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="FullscreenPreference"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -87.0
+offset_right = 121.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "@FULLSCREEN_PREFERENCE"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FullscreenPreference"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -29.0
+offset_right = 76.5
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="FullscreenYes" type="Button" parent="FullscreenPreference/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "@YES"
+
+[node name="FullscreenNo" type="Button" parent="FullscreenPreference/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "@NO"
+
+[node name="TutorialPreference" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TutorialPreference"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -87.0
+offset_right = 121.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "@PLAY_TUTORIAL"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialPreference"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -29.0
+offset_right = 76.5
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="TutorialYes" type="Button" parent="TutorialPreference/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "@PLAY_TUTORIAL_YES"
+
+[node name="TutorialNo" type="Button" parent="TutorialPreference/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "@PLAY_TUTORIAL_NO"
+
+[node name="SpeakerDog" type="Sprite2D" parent="TutorialPreference"]
+modulate = Color(2, 2, 2, 1)
+position = Vector2(165, 606)
+rotation = 3.14159
+scale = Vector2(-1.25, -1.25)
+texture = ExtResource("3_4eus3")
+hframes = 7
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qgnjr")
+}
+
+[node name="YesSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_x07gs")
+bus = &"SoundFX"

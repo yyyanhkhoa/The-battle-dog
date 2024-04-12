@@ -1,0 +1,210 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwob74kj32y7y"]
+
+[ext_resource type="Script" path="res://scenes/battlefields/common/dog_tower/gandolfg/gandolfg.gd" id="1_m75x0"]
+[ext_resource type="Texture2D" uid="uid://t34bq117ctbi" path="res://scenes/battlefields/common/dog_tower/gandolfg/gandolfg.png" id="2_vdj8u"]
+[ext_resource type="Texture2D" uid="uid://caabxbxbqmlc6" path="res://scenes/battlefields/common/dog_tower/gandolfg/staff.png" id="3_7sy6i"]
+
+[sub_resource type="Animation" id="Animation_83m20"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/GandolfgSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation/StaffWrapper/Staff:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Animation/StaffWrapper/Staff:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animation/StaffWrapper/Staff:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3.8147e-06, -1.52588e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_ng5db"]
+resource_name = "attack"
+length = 1.58334
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/GandolfgSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.5, 0.666667, 0.833333, 1, 1.16667, 1.25, 1.41667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6, 7, 8, 9, 7, 8, 7, 6, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation/StaffWrapper/Staff:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.416667, 0.583333, 0.666667, 1, 1.16667, 1.58333),
+"transitions": PackedFloat32Array(1, 1, 1, 0.732043, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, 1.5708, 1.6057, 1.5708, 1.5708, 1.5708, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Animation/StaffWrapper/Staff:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 1.16667, 1.33333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6, 7, 8, 6, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animation/StaffWrapper/Staff:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.416667, 1.16667, 1.58333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-3.8147e-06, -1.52588e-05), Vector2(200, 0), Vector2(200, 0), Vector2(-3.8147e-06, -1.52588e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_wtc5b"]
+resource_name = "idle"
+length = 0.500017
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/GandolfgSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation/StaffWrapper/Staff:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Animation/StaffWrapper/Staff:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hnd72"]
+_data = {
+"RESET": SubResource("Animation_83m20"),
+"attack": SubResource("Animation_ng5db"),
+"idle": SubResource("Animation_wtc5b")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ytgc4"]
+radius = 425.568
+
+[node name="Gandolfg" type="Node2D"]
+script = ExtResource("1_m75x0")
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0
+one_shot = true
+
+[node name="Animation" type="Node2D" parent="."]
+
+[node name="GandolfgSprite" type="Sprite2D" parent="Animation"]
+unique_name_in_owner = true
+position = Vector2(-12, -100)
+texture = ExtResource("2_vdj8u")
+hframes = 2
+vframes = 5
+region_rect = Rect2(4, 4, 178, 185)
+
+[node name="StaffWrapper" type="Node2D" parent="Animation"]
+unique_name_in_owner = true
+position = Vector2(-42, -173)
+
+[node name="Staff" type="Sprite2D" parent="Animation/StaffWrapper"]
+unique_name_in_owner = true
+position = Vector2(-3.8147e-06, -1.52588e-05)
+texture = ExtResource("3_7sy6i")
+hframes = 3
+vframes = 3
+
+[node name="BulletSpawnMarker" type="Marker2D" parent="Animation/StaffWrapper/Staff"]
+unique_name_in_owner = true
+position = Vector2(2, -250)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hnd72")
+}
+autoplay = "idle"
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(0, -86.5)
+collision_layer = 0
+collision_mask = 4
+metadata/_edit_lock_ = true
+
+[node name="AttackCollisionShape" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_ytgc4")
+metadata/_edit_lock_ = true

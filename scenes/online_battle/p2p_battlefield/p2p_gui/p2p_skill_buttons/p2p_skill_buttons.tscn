@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://da3r4sj0ik6iq"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_uql3m"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/gui/skill_buttons/skill_buttons.gd" id="2_x7ldg"]
+[ext_resource type="PackedScene" uid="uid://33bborh4tyop" path="res://scenes/battlefields/common/base_battlefield/gui/skill_buttons/skill_button.tscn" id="3_xee6s"]
+[ext_resource type="Script" path="res://scenes/online_battle/p2p_battlefield/p2p_gui/p2p_skill_buttons/p2p_skill_button.gd" id="4_ucr8a"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_qf8to"]
+action = &"ui_skill_1"
+
+[sub_resource type="Shortcut" id="Shortcut_tbf2l"]
+events = [SubResource("InputEventAction_qf8to")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ccv6u"]
+action = &"ui_skill_2"
+
+[sub_resource type="Shortcut" id="Shortcut_4k6lo"]
+events = [SubResource("InputEventAction_ccv6u")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_wyxva"]
+action = &"ui_skill_3"
+
+[sub_resource type="Shortcut" id="Shortcut_ckb02"]
+events = [SubResource("InputEventAction_wyxva")]
+
+[node name="P2PSkillButtons" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_uql3m")
+script = ExtResource("2_x7ldg")
+
+[node name="FirstRow" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 324.0
+offset_bottom = 838.0
+theme_override_constants/separation = 25
+
+[node name="SkillButton" parent="FirstRow" instance=ExtResource("3_xee6s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_tbf2l")
+script = ExtResource("4_ucr8a")
+
+[node name="SkillButton2" parent="FirstRow" instance=ExtResource("3_xee6s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_4k6lo")
+script = ExtResource("4_ucr8a")
+
+[node name="SkillButton3" parent="FirstRow" instance=ExtResource("3_xee6s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_ckb02")
+script = ExtResource("4_ucr8a")

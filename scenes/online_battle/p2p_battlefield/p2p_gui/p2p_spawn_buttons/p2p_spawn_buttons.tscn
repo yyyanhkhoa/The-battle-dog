@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsad8f7goqbjv"]
+
+[ext_resource type="PackedScene" uid="uid://e7fcshjccrpt" path="res://scenes/battlefields/common/base_battlefield/gui/spawn_buttons/spawn_buttons.tscn" id="1_k07n0"]
+[ext_resource type="Script" path="res://scenes/online_battle/p2p_battlefield/p2p_gui/p2p_spawn_buttons/p2p_spawn_button.gd" id="2_extu4"]
+
+[node name="P2PSpawnButtons" instance=ExtResource("1_k07n0")]
+
+[node name="CharacterButton" parent="SecondRow" index="0"]
+script = ExtResource("2_extu4")
+
+[node name="CharacterButton2" parent="SecondRow" index="1"]
+script = ExtResource("2_extu4")
+
+[node name="CharacterButton3" parent="SecondRow" index="2"]
+script = ExtResource("2_extu4")
+
+[node name="CharacterButton4" parent="SecondRow" index="3"]
+script = ExtResource("2_extu4")
+
+[node name="CharacterButton5" parent="SecondRow" index="4"]
+script = ExtResource("2_extu4")
+
+[node name="CharacterButton" parent="FirstRow" index="0"]
+script = ExtResource("2_extu4")
+
+[node name="CharacterButton2" parent="FirstRow" index="1"]
+script = ExtResource("2_extu4")
+
+[node name="CharacterButton3" parent="FirstRow" index="2"]
+script = ExtResource("2_extu4")
+
+[node name="CharacterButton4" parent="FirstRow" index="3"]
+script = ExtResource("2_extu4")
+
+[node name="CharacterButton5" parent="FirstRow" index="4"]
+script = ExtResource("2_extu4")

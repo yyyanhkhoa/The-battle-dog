@@ -1,0 +1,156 @@
+keys,vi,en
+@START_GAME,BẮT ĐẦU,START GAME
+@ONLINE_BATTLE,Đánh Online,Online Battle
+@CONFIRM,Đồng ý,Confirm
+@CANCEL,Hủy bỏ,Cancel
+@SETTINGS,Cài Đặt,Settings
+@QUIT,Thoát,Quit
+@HELP,Hướng Dẫn,Help
+@SKIP,Bỏ qua,Skip
+@BACK,< Quay lại,< Back
+@EXPEDITION,Viễn chinh !!!,Expedition !!!
+@UPGRADE,"Nâng cấp",Upgrade
+@RANKING,Bảng xếp hạng,Rankings
+@UNLOCK,Mở khóa,Unlock
+@STORE,Cửa hàng,Store
+@DOG_BASE,Căn cứ Chó,Dog Base
+@PLANET_DOGGO,Hành tinh Doggo,Planet Doggo
+@BONE,Xương,Bone
+@DOG_FOOD,Thức ăn cho Chó,Dog Food
+@ATTACK,TẤN CÔNG!,ATTACK!
+@TEAM_SETUP,Thiết lập đội hình,Team setup
+@CHARACTERS,Nhân vật,Characters
+@SKILLS,Kỹ năng,Skills
+@PASSIVES,Nội tại,Passives
+@ITEMS,Vật phẩm,Items
+@INFORMATION,Thông tin,Information
+@PAUSE,Tạm dừng,Pause
+@EXIT_BATTLE,Thoát trận đấu,Espace battle
+@EXIT_TO_MAIN_MENU,Về màn hình chính,Exit to main menu
+@VICTORY,Chiến Thắng!,Victory!
+@DEFEAT,Thất bại...,Defeat...
+@BACK_TO_DOG_BASE,Về căn cứ,Back to Dog Base
+@LIST,Danh sách,List
+@MUSIC,Nhạc,Music
+@SFX,Hiệu ứng âm thanh,Sound effects
+@SAVE,Lưu,Save
+@LANGUAGE,Ngôn ngữ,Language
+@FULLSCREEN_ON_STARTUP,Mở toàn màn hình lúc khởi động game,Fullscreen on startup
+@DELETE_SAVE_DATA,Xóa dữ liệu tiến độ game,Delete save data
+@CONFIRM_DELETE_SAVE,Bạn có thật sự muốn xóa dữ liệu tiến độ game? Hành động này không thể hoàn tác được.\n(Cuộc phiêu lưu của bạn và những chú Chó kể từ thời điểm này sẽ bị xóa khỏi thế giới...),Are you sure you want to delete the game save data? This action is not reversible.\n(Your journey with the Dogkind as of now will be erased from existance...)
+@KEY_BINDING_SETTINGS,Điều khiển,Key binding
+@BIND,Sửa phím cho,Bind
+@KEY_BINDING_INSTRUCTION,Bấm phím mong muốn,Press key to bind
+@RESET_TO_DEFAULT,Khôi phục về mặc định,Reset to default
+@CONFIRM_RESET_KEY_BINDING_SETTINGS,Bạn chắc chắn muốn khôi phục cài đặt phím tắt về mặc định chứ?,Are you sure you want to reset key binding settings to default?
+@KEY_ui_fullscreen,Mở game toàn màn hình,Toggle fullscreen
+@KEY_ui_confirm,Đồng ý,Confirm
+@KEY_ui_cancel,Hủy,Cancel
+@KEY_ui_zoomout,Thu nhỏ,Zoom out
+@KEY_ui_zoomin,Phóng to,Zoom in
+@KEY_ui_switch_row,Đổi hàng triệu hồi Chó,Switch Dog summoning row
+@KEY_ui_spawn_1,Triệu hồi Chó 1,Summon Dog 1
+@KEY_ui_spawn_2,Triệu hồi Chó 2,Summon Dog 2
+@KEY_ui_spawn_3,Triệu hồi Chó 3,Summon Dog 3
+@KEY_ui_spawn_4,Triệu hồi Chó 4,Summon Dog 4
+@KEY_ui_spawn_5,Triệu hồi Chó 5,Summon Dog 5
+@KEY_ui_skill_1,Dùng kỹ năng 1,Perform Skill 1
+@KEY_ui_skill_2,Dùng kỹ năng 2,Perform Skill 2
+@KEY_ui_skill_3,Dùng kỹ năng 3,Perform Skill 3
+@KEY_ui_upgrade_efficiency,Nâng cấp năng suất lao động,Upgrade money generation efficiency
+@KEY_ui_switch_time_scale,Chuyển đổi tốc độ trận đấu,Toggle game speed (in battle)
+@KEY_ui_pause,Tạm dừng trận đấu,Pause game
+@TOGGLE_MUSIC,Tắt/Mở nhạc nền,Toggle music
+@TOGGLE_SFX,Tắt/Mở hiệu ứng âm thanh,Toggle sound effects
+@RECEIVED,Nhận được,Received
+@CREDIT,Credits,Credits
+@CREDIT_MADE_BY,Game được phát triển bởi:,Created By:
+@CREDIT_CMB,"Lập trình, Đồ họa, Hoạt hình","Programming, Art, Animations"
+@CREDIT_TAK,"Lập trình, Kiếm resource cho game","Programming, Resource Finding"
+@CREDIT_SPECIAL_THANKS,Special Thanks dành cho:,Special Thanks to:
+@CREDIT_MUSMUS,MusMus (musmus.main.jp) cung cấp BGM miễn phí cho game (nhạc quá hay luôn!),MusMus (musmus.main.jp) for providing free BGMs for the game (they're so good!)
+@CREDIT_MIXKIT,Mixkit (mixkit.co) cung cấp sound effect miễn phí cho game,MusMus (musmus.main.jp) for providing free sound effects for the game
+@CREDIT_PIXABAY,Pixabay (pixabay.com) cung cấp sound effect miễn phí cho game,Pixabay (pixabay.com) for providing free sound effects for the game
+@CREDIT_RIGOR_MORTIS,"Rigor Mortis: Test game, góp ý và gợi ý tưởng cho game","Rigor Mortis: Testing out the game, provide feedback and ideas for the game"
+@CREDIT_BILITIS,Bilitis: Test game phiên bản web trên điện thoại,Bilitis: Testing the web version of the game on mobile
+@LANGUAGE_PREFERENCE,Chọn ngôn ngữ,Select Language
+@FULLSCREEN_PREFERENCE,Bạn có muốn game ở chế độ toàn màn hình?,Do you want the game to be in fullscreen?
+@PLAY_TUTORIAL,Bạn có muốn chú Chó dễ thương này hướng dẫn bạn cách chơi game không?,Do you want this cute Dog to show you how to play the game?
+@PLAY_TUTORIAL_YES,Có chứ (Tôi rất thích chó!),Yes please (I love dogs!)
+@PLAY_TUTORIAL_NO,Không (Tôi có chơi game này rồi),Nah (I have played this game before)
+@YES,Có,Yes
+@NO,Không,No
+@OK,Ok,Ok
+@NEED_LOGGED_IN_WITH_STEAM,Chỉ chơi được nếu bạn đã đăng nhập vào tài khoản Steam,Only available if you are logged in with Steam
+@HIGHSCORE,Điểm ,High score
+@FASTESTTIME,Thời gian,Time score
+@HIGHSCORE_DESCRIPTION,Bảng xếp hạng người chơi có số điểm online cao nhất,Ranking table of players with the highest online score
+@FASTESTTIME_DESCRIPTION,Bảng xếp hạng người chơi hoàn thành màn cuối với thời gian nhanh nhất,Ranking table of players completing the final stage with the fastest time
+@SELECT_PLAYER_DATA?,Bạn muốn sử dụng dữ liệu từ Steam hay máy tính (Lưu ý: hành động này sẽ xóa dữ hiện có trong máy tính hoặc Steam của bạn),Do you like to use data from Steam or computer (This action will delete data from your computer or your Steam)
+@VICTORYCOUNT,Hoàn thành,Victory
+@VICTORYCOUNT_DESCRIPTION,Bảng xếp hạng người chơi có số lần hoàn thành màn cuối nhiều lần nhất,Leaderboard for players who have completed the final level the most times
+@COMPUTER,Máy tính,Computer
+@STEAM,Steam,Steam
+@BUY,Mua,Buy
+@QUIT_GAME_STEAM_DISCONNECTED,"Mất kết nối với Steam, vui lòng đăng nhập vào Steam và khởi động lại trò chơi.","Steam disconnected, please login to Steam again and restart the game."
+@LOBBY,Đánh Online - Sảnh,Room Listing - Lobby
+@REFRESH,Làm mới,Refresh
+@ROOM,Phòng đợi,Room
+@ROOM_NAME,Tên phòng,Room name
+@ROOM_CODE,Mã phòng,Room code
+@CREATE_ROOM,Tạo phòng,Create Room
+@CREATE,Tạo,Create
+@CREATING_ROOM,Tạo phòng...,Creating Room...
+@ROOM_CREATE_FAILED,"Tạo phòng thất bại, vui lòng thử lại","Create room failed, please try again"
+@JOIN_WITH_CODE,Vào phòng bằng mã,Join room with code
+@JOIN,Vào,Join
+@ROOM_JOINING,Tham gia phòng...,Joining room...
+@ROOM_NOT_EXIST,Phòng không tồn tại,Room does not exist
+@ROOM_JOIN_FAILED_FULL,"Tham gia phòng thất bại, phòng đã đầy","Join room failed, room is full"
+@ROOM_JOIN_FAILED,Tham gia phòng thất bại,Join room failed
+@AUTO_MATCHMAKING,Tự động tìm phòng,Auto match-making
+@MATCHMAKING_FAILED,Tìm phòng thất bại,Match making failed
+@FINDING,Đang tìm...,Finding...
+@ROOM_JOINED,Đã vào phòng,Room joined
+@ROOM_CREATED,Đã tạo phòng,Room created
+@LOADING,Đang tải...,Loading...
+@SLOT_EMPTY,Trống,Empty
+@OWNER,Chủ phòng,Owner
+@NOT_READY,Chưa sẵn sàng,Not ready
+@READY,Sẵn sàng,Ready
+@UNREADY,Hủy sẵn sàng,Unready
+@START,Vào Game,Start Game
+@ROOM_LOST_CONNECTION,Lỗi: Mất kết nối với phòng,Error: Lost connection to room
+@STARTING_GAME,Đang bắt đầu game...,Starting game...
+@COPY,Copy,Copy
+@SEND,Gửi,Send
+@PLAYER_HAS_LEFT,đã thoát phòng,has left the room
+@PLAYER_HAS_JOINED,đã vào phòng,has joined the room
+@WAITTING_FOR_OTHER_PLAYER_IN_BATTLE,Đợi đối phương vào game...,Waiting for other player to enter game...
+@IS_NEW_ROOM_OWNER,đã trở thành chủ phòng,is the new room owner
+@CONNECTING_TO_PLAYER,Đang kết nối với,Connecting to
+@CONNECTION_ESTABLISHED_WITH,Kết nối thành công với,Connection established with
+@FAILED_TO_CONNECT_WITH,Kết nối thất bại với,Failed to connect with
+@HAS_DISCONNECTED,đã dừng kết nối,has disconnected
+@HAS_CREATED_CONNECTION,đã tạo kết nối,has created a connection
+@RECONNECTING_WITH,Kết nối lại với,Reconnecting with
+@OTHER_PLAYER_LEFT,Đối phương đã thoát game,Other play has left
+@RECONNECT_FAILED,Kết nối thất bại,Reconnect failed
+@RECONNECTING,Đã mất kết nối. Đang kết nối lại...,Disconnected. Reconnecting...
+@GAME_LOST_CONNECTION,Lỗi: Mất kết nối với game,Error: Lost connection to game
+@BACK_TO_ROOM,Quay về phòng,Back to room
+@SURRENDER,Đầu hàng,Surrender
+@SURRENDER_WARNING,Bạn có thật sự muốn đầu hàng?,Are you sure you want to surrender?
+@STAGE_WIDTH,Chiều dài mặt trận,Stage width
+@DOG_TOWER_HEALTH,Máu thành,Tower health
+@MONEY_EFFICIENCY_LEVEL,Năng suất tạo tiền,Money efficiency
+@POWER_LEVEL,Cấp Sức mạnh,Power Level
+@THEME,Nền,Theme
+@THEME_green_grass,Cỏ xanh,Green grass
+@THEME_fall,Mùa thu,Fall
+@THEME_heavenly,Thiên Đàng,Heavenly
+@THEME_night,Đêm,Night
+@THEME_nightmare,Ác mộng,Nightmare
+@THEME_winter,Mùa đông,Winter
+@EXPLORATION,Thám hiểm,Exploration
+@ITEM,Vật phẩm,Item

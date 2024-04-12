@@ -1,0 +1,59 @@
+{
+  "battlefield": "shrine_maiden_lake",
+  "music": "battlefield_theme1",
+  "boss_music": "miko_dog_theme",
+  "stage_width": 6000,
+  "cat_tower_health": 30000,
+  "reward_bone": 100000,
+  "power_scale": 2.5,
+  "spawn_patterns": [
+    {
+      "id": "smol_cat",
+      "interval": 2.5,
+      "delay": 5
+    },
+    {
+      "id": "cat",
+      "interval": 5,
+      "delay": 5.5
+    },
+    {
+      "id": "rolling_cat",
+      "interval": 10,
+      "delay": 30
+    },
+    {
+      "id": "buff_cat",
+      "when": "boss_spawned",
+      "spawn_type": "once"
+    },
+    {
+      "id": "buff_cat",
+      "interval": 120,
+      "delay": 60,
+      "when": "boss_spawned"
+    },
+    {
+      "id": "rolling_cat",
+      "interval": 20,
+      "when": "boss_spawned"
+    },
+    {
+      "id": "smol_cat",
+      "interval": 5,
+      "when": "boss_spawned"
+    }
+  ],
+  "bosses": [
+    {
+      "health_at": 30000,
+      "id": "miko_dog",
+      "dog_level": 10,
+      "dog_abilities": ["yin_yang_orb"],
+      "buffs": [
+        { "name": "reward_money", "scale": 3 },
+        { "name": "health", "scale": 10 }
+      ]
+    }
+  ]
+}

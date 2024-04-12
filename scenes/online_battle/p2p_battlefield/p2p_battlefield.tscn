@@ -1,0 +1,87 @@
+[gd_scene load_steps=17 format=3 uid="uid://b0ihidn3ggmh5"]
+
+[ext_resource type="Material" uid="uid://csnkk5ulllaxk" path="res://shaders/sky/sky.material" id="1_3ebhf"]
+[ext_resource type="Script" path="res://scenes/online_battle/p2p_battlefield/p2p_battlefield.gd" id="1_i8anq"]
+[ext_resource type="Script" path="res://scenes/online_battle/p2p_battlefield/server_side.gd" id="2_54xfd"]
+[ext_resource type="Script" path="res://scenes/online_battle/p2p_battlefield/client_side.gd" id="2_4858x"]
+[ext_resource type="PackedScene" uid="uid://csqn20ypesci4" path="res://scenes/online_battle/p2p_battlefield/in_battle_ready/in_battle_ready.tscn" id="2_xki2s"]
+[ext_resource type="PackedScene" uid="uid://xny5rxpmau5y" path="res://scenes/online_battle/p2p_battlefield/p2p_land/p2p_land.tscn" id="3_p4hqa"]
+[ext_resource type="Script" path="res://scenes/online_battle/p2p_battlefield/p2p_connection_handler.gd" id="4_4ppfx"]
+[ext_resource type="PackedScene" uid="uid://uh7hnntqdigc" path="res://scenes/online_battle/p2p_battlefield/p2p_dog_tower/p2p_dog_tower_left.tscn" id="5_8afl3"]
+[ext_resource type="PackedScene" uid="uid://btcyop0so1g7h" path="res://scenes/online_battle/p2p_battlefield/p2p_gui/p2p_gui.tscn" id="5_y62fp"]
+[ext_resource type="Texture2D" uid="uid://dl847jxlc5jay" path="res://resources/battlefield_themes/green_grass/sky.png" id="6_acvgk"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/Camera2D.gd" id="6_cy4w7"]
+[ext_resource type="PackedScene" uid="uid://inelp1r1r34q" path="res://scenes/online_battle/p2p_battlefield/p2p_dog_tower/p2p_dog_tower_right.tscn" id="6_v6ew7"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/sky.gd" id="7_aolxo"]
+[ext_resource type="AudioStream" uid="uid://dm1ge42cv7vy7" path="res://resources/sound/battlefield/boss_drum.mp3" id="7_t23ci"]
+[ext_resource type="PackedScene" uid="uid://cniblhu062ir" path="res://scenes/popup/popup.tscn" id="11_ovxua"]
+[ext_resource type="Script" path="res://scenes/online_battle/p2p_battlefield/p2p_danmaku_space.gd" id="16_54x44"]
+
+[node name="P2PBattlefield" type="Node2D" node_paths=PackedStringArray("land")]
+process_mode = 1
+script = ExtResource("1_i8anq")
+land = NodePath("Land")
+
+[node name="ServerSide" type="Node" parent="."]
+process_mode = 1
+script = ExtResource("2_54xfd")
+
+[node name="ClientSide" type="Node" parent="."]
+process_mode = 1
+script = ExtResource("2_4858x")
+
+[node name="P2PConnectionHandler" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("4_4ppfx")
+
+[node name="ReconnectTimer" type="Timer" parent="P2PConnectionHandler"]
+process_mode = 3
+wait_time = 30.0
+one_shot = true
+
+[node name="Sky" type="TextureRect" parent="."]
+material = ExtResource("1_3ebhf")
+offset_left = -760.0
+offset_top = -1064.0
+offset_right = 2312.0
+offset_bottom = 1384.0
+size_flags_horizontal = 4
+texture = ExtResource("6_acvgk")
+stretch_mode = 1
+script = ExtResource("7_aolxo")
+
+[node name="Land" parent="." instance=ExtResource("3_p4hqa")]
+
+[node name="P2PDogTowerLeft" parent="." instance=ExtResource("5_8afl3")]
+
+[node name="P2PDogTowerRight" parent="." instance=ExtResource("6_v6ew7")]
+position = Vector2(1039, 0)
+
+[node name="Gui" parent="." instance=ExtResource("5_y62fp")]
+process_mode = 1
+
+[node name="EffectSpace" type="Node2D" parent="."]
+z_index = 40
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("6_cy4w7")
+
+[node name="BossDrum" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_t23ci")
+bus = &"InBattleFX"
+
+[node name="InBattleReady" parent="." instance=ExtResource("2_xki2s")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Popup" parent="CanvasLayer" instance=ExtResource("11_ovxua")]
+unique_name_in_owner = true
+layer = 2
+
+[node name="DanmakuSpace" type="Node" parent="."]
+script = ExtResource("16_54x44")
+current = null
+bullet_kits = null
+pools_sizes = null
+parents_hints = null
+z_indices = null

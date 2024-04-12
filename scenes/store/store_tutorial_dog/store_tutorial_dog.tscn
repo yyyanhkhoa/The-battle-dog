@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2nx33kd8qchx"]
+
+[ext_resource type="PackedScene" uid="uid://chnwixpec81w0" path="res://scenes/tutorial_dog/tutorial_dog.tscn" id="1_r4ko1"]
+[ext_resource type="Script" path="res://scenes/common/finite_state_machine/FSM.gd" id="2_owf4q"]
+[ext_resource type="Script" path="res://scenes/upgrade/upgrade_tutorial_dog/upgrade_state.gd" id="3_ms3k3"]
+
+[node name="TutorialDog" instance=ExtResource("1_r4ko1")]
+
+[node name="FSM" type="Node" parent="." index="6"]
+script = ExtResource("2_owf4q")
+initial_state = NodePath("UpgradeState")
+
+[node name="UpgradeState" type="Node" parent="FSM" index="0"]
+script = ExtResource("3_ms3k3")

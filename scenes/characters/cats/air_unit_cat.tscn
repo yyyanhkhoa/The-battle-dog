@@ -1,0 +1,151 @@
+[gd_scene load_steps=16 format=3 uid="uid://14rtm3qx0p7g"]
+
+[ext_resource type="PackedScene" uid="uid://bvye5slcq68rj" path="res://scenes/characters/cats/base_cat_empty_fsm.tscn" id="1_smhkw"]
+[ext_resource type="Script" path="res://scenes/characters/cats/air_unit_cat.gd" id="2_qlc7d"]
+[ext_resource type="Script" path="res://scenes/characters/cats/air_unit_change_target_state.gd" id="3_0t4do"]
+[ext_resource type="Script" path="res://scenes/characters/cats/air_unit_idle_state.gd" id="3_l8pll"]
+[ext_resource type="Script" path="res://scenes/characters/cats/air_unit_move_state.gd" id="4_wnv6w"]
+[ext_resource type="Script" path="res://scenes/characters/cats/air_unit_knockback_state.gd" id="5_7ovyt"]
+[ext_resource type="Script" path="res://scenes/characters/cats/base_air_unit_attack_state.gd" id="6_iuaev"]
+[ext_resource type="Script" path="res://scenes/characters/die_state.gd" id="6_pofvc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8rnt"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_gwlt8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_18yy2"]
+resource_name = "knockback"
+length = 0.500017
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_t17j0"]
+resource_name = "move"
+length = 0.666685
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333334, 0.500001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecn50"]
+resource_local_to_scene = true
+_data = {
+"RESET": SubResource("Animation_gwlt8"),
+"knockback": SubResource("Animation_18yy2"),
+"move": SubResource("Animation_t17j0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxma6"]
+resource_local_to_scene = true
+size = Vector2(192, 178)
+
+[sub_resource type="Curve2D" id="Curve2D_4i3fq"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 86.7271, -1.24723, -86.7271, 1.24723, -280, -55, 0, 0, 0, 0, -550, 12)
+}
+point_count = 3
+
+[node name="AirUnitCat" instance=ExtResource("1_smhkw")]
+collision_layer = 68
+collision_mask = 1
+script = ExtResource("2_qlc7d")
+movement_radius = 500
+reward_money = 10
+unit_type = 1
+attack_type = 3
+speed = 400
+attack_range = 1000
+attack_cooldown = 8.0
+health = 350
+
+[node name="CollisionShape2D" parent="DanmakuHitbox" index="0"]
+shape = SubResource("RectangleShape2D_f8rnt")
+
+[node name="AttackCooldownTimer" parent="." index="1"]
+wait_time = 8.0
+
+[node name="Character" parent="CharacterAnimation" index="0"]
+hframes = 4
+vframes = 2
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_ecn50")
+}
+
+[node name="CollisionShape2D" parent="." index="4"]
+shape = SubResource("RectangleShape2D_bxma6")
+
+[node name="RayCast2D" parent="." index="5"]
+position = Vector2(1096, -1)
+target_position = Vector2(-2192, 0)
+
+[node name="FiniteStateMachine" parent="." index="6"]
+initial_state = NodePath("ChangeTargetState")
+
+[node name="ChangeTargetState" type="Node" parent="FiniteStateMachine" index="0"]
+script = ExtResource("3_0t4do")
+
+[node name="IdleState" type="Node" parent="FiniteStateMachine" index="1"]
+script = ExtResource("3_l8pll")
+
+[node name="MoveState" type="Node" parent="FiniteStateMachine" index="2"]
+script = ExtResource("4_wnv6w")
+
+[node name="Path2D" type="Path2D" parent="FiniteStateMachine/MoveState" index="0"]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_4i3fq")
+metadata/_edit_lock_ = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="FiniteStateMachine/MoveState/Path2D" index="0"]
+unique_name_in_owner = true
+rotation = -2.94763
+loop = false
+metadata/_edit_lock_ = true
+
+[node name="AttackState" type="Node" parent="FiniteStateMachine" index="3"]
+script = ExtResource("6_iuaev")
+
+[node name="KnockbackState" type="Node" parent="FiniteStateMachine" index="4"]
+script = ExtResource("5_7ovyt")
+
+[node name="DieState" type="Node" parent="FiniteStateMachine" index="5"]
+script = ExtResource("6_pofvc")

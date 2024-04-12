@@ -1,0 +1,11 @@
+keys,vi,en
+@SKILL_NAME_fire_ball,Mưa Cầu Lửa,Rain of Fire balls
+@SKILL_DESCRIPTION_fire_ball,"Sử dụng khoa học ma thuật loài Chó, tạo cơn mưa cầu lửa gây sát thương lớn lên kẻ địch. Cầu lửa gây sát thương đơn mục tiêu.","Using Dog's science of magic, create a rain of fire balls to cause despair to the enemies. Each fire ball peforms single target attack."
+@SKILL_NAME_lightning,Đường Sấm Chớp,Lightning Strikes
+@SKILL_DESCRIPTION_lightning,"Sử dụng khoa học ma thuật loài Chó, tạo một đường thẳng nơi sấm chớp đâm xuống kẻ địch. Sấm chớp này gấy sát thương diện rộng và làm chậm kẻ địch trúng đòn. Đây là thần chú yêu thích của Gandolfg.","Using Dog's science of magic, create a line of lightning strikes to strike down the enemies. Each lightning strike performs area attack and slow down enemies that are striked. This is Gandolfg's favorite spell."
+@SKILL_NAME_drum,Trống Trận Cẩu Sơn,War Drum 
+@SKILL_DESCRIPTION_drum,"Trống Cẩu Sơn được loài Chó truyền lại qua nhiều thế hệ, chỉ một tiếng trống vang lên là có thể khiến cả một đội quân hàng vạn Mèo phải kinh sợ. Đẩy lùi kẻ địch.",Cẩu Sơn War Drum - a war drum that has been passed down through generations. Just one sound from the drum is enough to make an army of ten of thousands of Cats to tremble in fear. Knockback enemies.
+@SKILL_NAME_healing,Hồi Máu Thành,Heal Dog Tower
+@SKILL_DESCRIPTION_healing,Triệu hồi sấm sét ma thuật giúp hồi máu cho Thành Chó.,Sumon a magic lightning that heals the Dog Tower.
+@SKILL_NAME_power_up,Tăng Sức Mạnh,Power Up
+@SKILL_DESCRIPTION_power_up,Sử dụng sức mạnh của tình bạn để tăng nhuệ khí của những chú Chó hiện có trên mặt trận. Hiệu quả trong vòng 5 giây.,Using the power of friendship to increase morale of the Dogs currently in the battlefield. Lasts 5 seconds.

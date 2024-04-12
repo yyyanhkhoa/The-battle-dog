@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://437p87lci6ul"]
+
+[ext_resource type="Script" path="res://scenes/characters/dogs/miko_dog/yin_yang_orb/yin_yang_orb.gd" id="1_q61y2"]
+[ext_resource type="Texture2D" uid="uid://8d7alkpl7axw" path="res://scenes/characters/dogs/miko_dog/yin_yang_orb/yin_yang_orb.png" id="1_uctku"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjrmv"]
+atlas = ExtResource("1_uctku")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h3wq"]
+atlas = ExtResource("1_uctku")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mif7f"]
+atlas = ExtResource("1_uctku")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccc4i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjrmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h3wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mif7f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fx253"]
+radius = 113.04
+
+[node name="yin_yang_orb" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 17
+script = ExtResource("1_q61y2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ccc4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fx253")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fx253")

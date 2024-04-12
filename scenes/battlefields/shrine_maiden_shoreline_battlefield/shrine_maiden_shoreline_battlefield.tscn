@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgkjh6rxkt4wr"]
+
+[ext_resource type="PackedScene" uid="uid://culho3ivbdqd3" path="res://scenes/battlefields/common/base_battlefield/base_battlefield.tscn" id="1_y7l1m"]
+[ext_resource type="PackedScene" uid="uid://d2x7bp0oc88jh" path="res://scenes/battlefields/common/land_water/land_water.tscn" id="2_djyeb"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/one_tower_battlefield.gd" id="2_x3xve"]
+[ext_resource type="Texture2D" uid="uid://byjq7pl8g55fe" path="res://resources/images/battlefield/dog_tower_land.png" id="3_4rmoj"]
+[ext_resource type="PackedScene" uid="uid://lyrmnwxclfgn" path="res://scenes/battlefields/common/dog_tower/dog_tower.tscn" id="4_o0jct"]
+[ext_resource type="Material" uid="uid://dh4v3vpys04rn" path="res://shaders/water_reflection/water_reflection.tres" id="7_s17wp"]
+[ext_resource type="Texture2D" uid="uid://f7ttqqnis37x" path="res://resources/images/godot.svg" id="8_cyn1e"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/water_reflection/reflection.gd" id="9_mpbq3"]
+[ext_resource type="PackedScene" uid="uid://byix3iwgirpdb" path="res://scenes/battlefields/common/enemy_spawn_point/enemy_spawn_point.tscn" id="9_t7wau"]
+
+[node name="ShrineMaidenLakeBattlefield" node_paths=PackedStringArray("enemy_spawn_point", "dog_tower", "land") instance=ExtResource("1_y7l1m")]
+script = ExtResource("2_x3xve")
+enemy_spawn_point = NodePath("EnemySpawnPoint")
+dog_tower = NodePath("DogTower")
+land = NodePath("LandWater")
+
+[node name="Sky" parent="." index="0"]
+z_index = -1
+
+[node name="LandWater" parent="." index="1" instance=ExtResource("2_djyeb")]
+z_index = -1
+
+[node name="DogTowerLand" type="Sprite2D" parent="." index="2"]
+position = Vector2(714, 163)
+texture = ExtResource("3_4rmoj")
+
+[node name="DogTower" parent="." index="3" instance=ExtResource("4_o0jct")]
+position = Vector2(895, 0)
+
+[node name="EnemySpawnPoint" parent="." index="4" instance=ExtResource("9_t7wau")]
+position = Vector2(2388, 0)
+
+[node name="WinBattleRaycast" type="RayCast2D" parent="." index="5"]
+position = Vector2(2572, 0)
+target_position = Vector2(0, -1000)
+collision_mask = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="." index="6"]
+z_index = 100
+copy_mode = 2
+
+[node name="Reflection" type="Sprite2D" parent="." index="7"]
+unique_name_in_owner = true
+z_index = 100
+material = ExtResource("7_s17wp")
+position = Vector2(0, -6)
+scale = Vector2(28.5062, 3.78125)
+texture = ExtResource("8_cyn1e")
+centered = false
+script = ExtResource("9_mpbq3")

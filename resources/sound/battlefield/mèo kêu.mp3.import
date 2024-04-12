@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://yf21fmrrxxax"
+path="res://.godot/imported/mèo kêu.mp3-98b4fe6a8c4b3fd306b2585ab3ed641d.mp3str"
+
+[deps]
+
+source_file="res://resources/sound/battlefield/mèo kêu.mp3"
+dest_files=["res://.godot/imported/mèo kêu.mp3-98b4fe6a8c4b3fd306b2585ab3ed641d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

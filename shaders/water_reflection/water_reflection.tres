@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dh4v3vpys04rn"]
+
+[ext_resource type="Shader" path="res://shaders/water_reflection/water_reflection.gdshader" id="1_3kv4a"]
+
+[resource]
+shader = ExtResource("1_3kv4a")
+shader_parameter/scale = Vector2(28.5062, 3.1875)
+shader_parameter/y_zoom = 0.33371
+shader_parameter/water_color = Color(0.258824, 0.839216, 1, 0.176471)
+shader_parameter/wave_amplitude = 0.045
+shader_parameter/wave_speed = 5.0
+shader_parameter/wave_period = 1.0

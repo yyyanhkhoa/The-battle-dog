@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://cu0by1s72tx3o"]
+
+[ext_resource type="Script" path="res://scenes/skills/fire_ball/ball.gd" id="1_yyqct"]
+[ext_resource type="Texture2D" uid="uid://deh28ywd0ub80" path="res://resources/images/skills/fire_ball.png" id="2_s3ij8"]
+[ext_resource type="AudioStream" uid="uid://dm3m3nmm7d1bh" path="res://resources/sound/battlefield/Tieng-lua-chay.mp3" id="2_t5c7m"]
+
+[sub_resource type="Animation" id="Animation_k3r0e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_pmncx"]
+resource_name = "die"
+length = 0.75
+step = 0.04
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52, 0.56, 0.6, 0.64),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+}
+
+[sub_resource type="Animation" id="Animation_7xwcg"]
+resource_name = "move"
+length = 4.00002
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333334, 0.500001, 0.666668, 0.833335, 1, 1.16667, 1.33334, 1.5, 1.66667, 1.83334, 2, 2.16667, 2.33334, 2.50001, 2.66667, 2.83334, 3.00001, 3.16667, 3.33334, 3.50001, 3.66667, 3.83334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fl247"]
+_data = {
+"RESET": SubResource("Animation_k3r0e"),
+"die": SubResource("Animation_pmncx"),
+"move": SubResource("Animation_7xwcg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oa1yv"]
+resource_local_to_scene = true
+size = Vector2(109.42, 298.67)
+
+[node name="FireBall" type="CharacterBody2D"]
+position = Vector2(509, 309)
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_yyqct")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "move"
+libraries = {
+"": SubResource("AnimationLibrary_fl247")
+}
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-70.5037, -128.398)
+rotation = 1.05941
+texture = ExtResource("2_s3ij8")
+hframes = 4
+vframes = 13
+frame = 12
+region_rect = Rect2(4, 4, 178, 185)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-41.8202, -78.4877)
+rotation = -0.424115
+shape = SubResource("RectangleShape2D_oa1yv")
+
+[node name="move" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_t5c7m")
+volume_db = -5.0
+autoplay = true
+bus = &"InBattleFX"

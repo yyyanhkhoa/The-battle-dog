@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwvv60owbdqf2"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_w5j15"]
+[ext_resource type="BitMap" uid="uid://b3xfrqtapv6lu" path="res://scenes/online_battle/p2p_battlefield/p2p_gui/surrender_button/click_mask.png" id="2_r0fhn"]
+[ext_resource type="Texture2D" uid="uid://sj8wkw5an11p" path="res://scenes/online_battle/p2p_battlefield/p2p_gui/surrender_button/surrender_button.png" id="3_k334e"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_1x6t0"]
+action = &"ui_pause"
+
+[sub_resource type="Shortcut" id="Shortcut_1ljvj"]
+events = [SubResource("InputEventAction_1x6t0")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg0wv"]
+atlas = ExtResource("3_k334e")
+region = Rect2(0, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffolg"]
+atlas = ExtResource("3_k334e")
+region = Rect2(90, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhaij"]
+atlas = ExtResource("3_k334e")
+region = Rect2(180, 0, 90, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62qh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg0wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffolg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhaij")
+}],
+"loop": true,
+"name": &"ready",
+"speed": 3.0
+}]
+
+[node name="SurrenderButton" type="TextureButton"]
+offset_right = 90.0
+offset_bottom = 90.0
+theme = ExtResource("1_w5j15")
+shortcut = SubResource("Shortcut_1ljvj")
+texture_click_mask = ExtResource("2_r0fhn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(46, 47)
+sprite_frames = SubResource("SpriteFrames_62qh2")
+animation = &"ready"
+autoplay = "ready"
+frame_progress = 0.909423

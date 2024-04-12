@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://w3eaqtfaiv2g"]
+
+[ext_resource type="PackedScene" uid="uid://vno8d4sb6h00" path="res://scenes/characters/character_empty_fsm.tscn" id="1_8dnqj"]
+[ext_resource type="Script" path="res://scenes/characters/dogs/base_dog.gd" id="2_d36de"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rplwu"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ud63"]
+resource_local_to_scene = true
+size = Vector2(192, 178)
+
+[node name="BaseDogEmptyFSM" instance=ExtResource("1_8dnqj")]
+script = ExtResource("2_d36de")
+name_id = ""
+
+[node name="CollisionShape2D" parent="DanmakuHitbox" index="0"]
+shape = SubResource("RectangleShape2D_rplwu")
+
+[node name="CollisionShape2D" parent="." index="4"]
+shape = SubResource("RectangleShape2D_3ud63")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=13 format=3 uid="uid://405cftb6667i"]
+
+[ext_resource type="PackedScene" uid="uid://chnwixpec81w0" path="res://scenes/tutorial_dog/tutorial_dog.tscn" id="1_lowhj"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/battlefield_tutorial_dog/battlefield_tutorial_dog.gd" id="2_ccgfy"]
+[ext_resource type="Script" path="res://scenes/common/finite_state_machine/FSM.gd" id="3_wr6g6"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/battlefield_tutorial_dog/intro_state.gd" id="4_tkbjm"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/battlefield_tutorial_dog/dog_spawn_state.gd" id="5_md3pg"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/battlefield_tutorial_dog/cat_spawn_state.gd" id="6_s12eb"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/battlefield_tutorial_dog/cat_tower_damaged_state.gd" id="7_ay8rw"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/battlefield_tutorial_dog/victory_state.gd" id="8_a0ipc"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/battlefield_tutorial_dog/defeat_state.gd" id="9_j8m3c"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/battlefield_tutorial_dog/boss_appeared_state.gd" id="10_tnd4b"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/battlefield_tutorial_dog/final_boss_state.gd" id="11_jtpdo"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/battlefield_tutorial_dog/rush_state.gd" id="12_eqbfd"]
+
+[node name="TutorialDog" instance=ExtResource("1_lowhj")]
+script = ExtResource("2_ccgfy")
+
+[node name="FSM" type="Node" parent="." index="5"]
+script = ExtResource("3_wr6g6")
+initial_state = NodePath("IntroState")
+
+[node name="IntroState" type="Node" parent="FSM" index="0"]
+script = ExtResource("4_tkbjm")
+
+[node name="DogSpawnState" type="Node" parent="FSM" index="1"]
+script = ExtResource("5_md3pg")
+
+[node name="CatSpawnState" type="Node" parent="FSM" index="2"]
+script = ExtResource("6_s12eb")
+
+[node name="CatTowerDamageTakenState" type="Node" parent="FSM" index="3"]
+script = ExtResource("7_ay8rw")
+
+[node name="VictoryState" type="Node" parent="FSM" index="4"]
+script = ExtResource("8_a0ipc")
+
+[node name="DefeatState" type="Node" parent="FSM" index="5"]
+script = ExtResource("9_j8m3c")
+
+[node name="BossAppearedState" type="Node" parent="FSM" index="6"]
+script = ExtResource("10_tnd4b")
+
+[node name="FinalBossState" type="Node" parent="FSM" index="7"]
+script = ExtResource("11_jtpdo")
+
+[node name="RushState" type="Node" parent="FSM" index="8"]
+script = ExtResource("12_eqbfd")

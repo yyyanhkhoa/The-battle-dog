@@ -1,0 +1,335 @@
+[gd_scene load_steps=32 format=3 uid="uid://fwaltxldx6f8"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_u5mn4"]
+[ext_resource type="Script" path="res://scenes/endings/the_battle_dogs_rising_ending/the_battle_dogs_rising_ending.gd" id="1_v6rrc"]
+[ext_resource type="Texture2D" uid="uid://4k3bsby6bq66" path="res://resources/battlefield_themes/night/sky.png" id="3_p5074"]
+[ext_resource type="Shader" path="res://shaders/sky/sky.gdshader" id="3_pvp0e"]
+[ext_resource type="AudioStream" uid="uid://buxo6f84fjiqc" path="res://resources/sound/music/ending.mp3" id="3_t0ycw"]
+[ext_resource type="Texture2D" uid="uid://bb0s2ehx68ryk" path="res://resources/battlefield_themes/night/land.png" id="4_4qqct"]
+[ext_resource type="Texture2D" uid="uid://3mgk1tr4612p" path="res://scenes/endings/the_battle_dogs_rising_ending/main_background_3.png" id="4_pj4di"]
+[ext_resource type="Texture2D" uid="uid://dtvyuuaxygrsr" path="res://scenes/characters/dogs/dog/dog.png" id="5_f87yc"]
+[ext_resource type="Material" uid="uid://ctmwnj541mfet" path="res://shaders/scroll/scroll.material" id="5_javph"]
+[ext_resource type="Texture2D" uid="uid://dpd2rh2oujd3x" path="res://scenes/characters/dogs/batter_dog/batter_dog.png" id="7_lp6ah"]
+[ext_resource type="Shortcut" uid="uid://krf4dorlu4cx" path="res://resources/shortcuts/cancel.tres" id="8_0ly1o"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3og61"]
+noise_type = 3
+frequency = 0.0466
+fractal_gain = -0.455
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v7lyu"]
+seamless = true
+noise = SubResource("FastNoiseLite_3og61")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rdvek"]
+noise_type = 3
+frequency = 0.0121
+fractal_gain = -0.1
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dpi25"]
+seamless = true
+noise = SubResource("FastNoiseLite_rdvek")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwlye"]
+shader = ExtResource("3_pvp0e")
+shader_parameter/sky_wiggle = 10.0
+shader_parameter/noise_speed_scale = 0.075
+shader_parameter/noise_wiggle = 70.0
+shader_parameter/intensity = 0.08
+shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/speed_scale = 0.025
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_v7lyu")
+shader_parameter/noise_texture_2 = SubResource("NoiseTexture2D_dpi25")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vwy5"]
+atlas = ExtResource("7_lp6ah")
+region = Rect2(0, 298, 298, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i86o7"]
+atlas = ExtResource("7_lp6ah")
+region = Rect2(298, 298, 298, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83k5u"]
+atlas = ExtResource("7_lp6ah")
+region = Rect2(596, 298, 298, 298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqpkj"]
+atlas = ExtResource("5_f87yc")
+region = Rect2(1548, 0, 258, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_706ol"]
+atlas = ExtResource("5_f87yc")
+region = Rect2(0, 263, 258, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y35mm"]
+atlas = ExtResource("5_f87yc")
+region = Rect2(258, 263, 258, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx3ck"]
+atlas = ExtResource("5_f87yc")
+region = Rect2(516, 263, 258, 263)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6138"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vwy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i86o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83k5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i86o7")
+}],
+"loop": true,
+"name": &"bad_ending",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqpkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_706ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y35mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nx3ck")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_ttwkk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wb0d0"]
+resource_name = "fade in"
+length = 3.0
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_67nl6"]
+resource_name = "fade out"
+length = 1.33334
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.33333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_debot"]
+_data = {
+"RESET": SubResource("Animation_ttwkk"),
+"fade in": SubResource("Animation_wb0d0"),
+"fade out": SubResource("Animation_67nl6")
+}
+
+[sub_resource type="Animation" id="Animation_jnwsu"]
+length = 0.001
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(229, 704)]
+}
+
+[sub_resource type="Animation" id="Animation_37no3"]
+resource_name = "scroll_text"
+length = 180.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 180),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(229, 704), Vector2(229, -3700)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ikum5"]
+_data = {
+"RESET": SubResource("Animation_jnwsu"),
+"scroll_text": SubResource("Animation_37no3")
+}
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_u5mn4")
+script = ExtResource("1_v6rrc")
+
+[node name="Sky" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_kwlye")
+layout_mode = 0
+offset_left = -41.0
+offset_top = -250.0
+offset_right = 3031.0
+offset_bottom = 2198.0
+scale = Vector2(0.4, 0.4)
+size_flags_horizontal = 4
+texture = ExtResource("3_p5074")
+stretch_mode = 1
+
+[node name="Land" type="TextureRect" parent="."]
+material = ExtResource("5_javph")
+layout_mode = 0
+offset_left = -74.0
+offset_top = 431.0
+offset_right = 1665.0
+offset_bottom = 898.0
+scale = Vector2(0.75, 0.75)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("4_4qqct")
+stretch_mode = 1
+
+[node name="Dogs" type="Sprite2D" parent="."]
+modulate = Color(0.709804, 0.937255, 1, 0.419608)
+position = Vector2(-78.2222, -44)
+scale = Vector2(1.1358, 1.1358)
+texture = ExtResource("4_pj4di")
+centered = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(564, 404)
+sprite_frames = SubResource("SpriteFrames_j6138")
+autoplay = "default"
+frame_progress = 0.342093
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_debot")
+}
+autoplay = "fade in"
+
+[node name="SkipButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 568.0
+offset_right = 1103.0
+offset_bottom = 606.0
+focus_mode = 0
+shortcut = ExtResource("8_0ly1o")
+text = "@SKIP"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 229.0
+offset_top = 704.0
+offset_right = 915.0
+offset_bottom = 4663.0
+grow_horizontal = 2
+text = "@ENDING_SEQUENCE_TEXT"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -115.0
+offset_top = -114.0
+offset_right = 1353.0
+offset_bottom = 806.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayerText" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ikum5")
+}
+autoplay = "scroll_text"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t0ycw")
+autoplay = true
+bus = &"Music"

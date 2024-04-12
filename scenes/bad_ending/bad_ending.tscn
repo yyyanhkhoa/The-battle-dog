@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcjvnsglvwpkl"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_x25ed"]
+[ext_resource type="Script" path="res://scenes/bad_ending/bad_ending.gd" id="2_vjski"]
+[ext_resource type="PackedScene" uid="uid://cniblhu062ir" path="res://scenes/popup/popup.tscn" id="3_b370a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08a2v"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_hu21d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5jm3a"]
+resource_name = "show_text"
+length = 13.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.1, 3.5, 8.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ruqnk"]
+_data = {
+"RESET": SubResource("Animation_hu21d"),
+"show_text": SubResource("Animation_5jm3a")
+}
+
+[node name="kill_player" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_x25ed")
+theme_override_styles/panel = SubResource("StyleBoxFlat_08a2v")
+script = ExtResource("2_vjski")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -18.5
+offset_right = 102.0
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.741176, 0, 0, 1)
+text = "@BAD_ENDING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "show_text"
+libraries = {
+"": SubResource("AnimationLibrary_ruqnk")
+}
+
+[node name="Popup" parent="." instance=ExtResource("3_b370a")]
+layout_mode = 1

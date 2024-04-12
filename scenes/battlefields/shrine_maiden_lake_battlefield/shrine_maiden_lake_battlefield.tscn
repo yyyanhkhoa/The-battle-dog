@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvk5ng1ued5nu"]
+
+[ext_resource type="PackedScene" uid="uid://culho3ivbdqd3" path="res://scenes/battlefields/common/base_battlefield/base_battlefield.tscn" id="1_keue1"]
+[ext_resource type="PackedScene" uid="uid://d2x7bp0oc88jh" path="res://scenes/battlefields/common/land_water/land_water.tscn" id="2_q8b5m"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/one_tower_battlefield.gd" id="2_videt"]
+[ext_resource type="PackedScene" uid="uid://lyrmnwxclfgn" path="res://scenes/battlefields/common/dog_tower/dog_tower.tscn" id="3_qhoft"]
+[ext_resource type="Material" uid="uid://dh4v3vpys04rn" path="res://shaders/water_reflection/water_reflection.tres" id="4_fefo3"]
+[ext_resource type="Texture2D" uid="uid://f7ttqqnis37x" path="res://resources/images/godot.svg" id="5_0q6ab"]
+[ext_resource type="PackedScene" uid="uid://byix3iwgirpdb" path="res://scenes/battlefields/common/enemy_spawn_point/enemy_spawn_point.tscn" id="5_ct65l"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/water_reflection/reflection.gd" id="6_auswr"]
+
+[node name="ShrineMaidenLakeBattlefield" node_paths=PackedStringArray("enemy_spawn_point", "dog_tower", "land") instance=ExtResource("1_keue1")]
+script = ExtResource("2_videt")
+enemy_spawn_point = NodePath("EnemySpawnPoint")
+dog_tower = NodePath("DogTower")
+land = NodePath("LandWater")
+
+[node name="LandWater" parent="." index="1" instance=ExtResource("2_q8b5m")]
+z_index = -1
+
+[node name="DogTower" parent="." index="2" instance=ExtResource("3_qhoft")]
+position = Vector2(895, 0)
+
+[node name="EnemySpawnPoint" parent="." index="3" instance=ExtResource("5_ct65l")]
+position = Vector2(2388, 0)
+
+[node name="WinBattleRaycast" type="RayCast2D" parent="." index="4"]
+position = Vector2(2572, 0)
+target_position = Vector2(0, -1000)
+collision_mask = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="." index="5"]
+z_index = 100
+copy_mode = 2
+
+[node name="Reflection" type="Sprite2D" parent="." index="6"]
+unique_name_in_owner = true
+z_index = 100
+material = ExtResource("4_fefo3")
+position = Vector2(0, -6)
+scale = Vector2(28.5062, 3.78125)
+texture = ExtResource("5_0q6ab")
+centered = false
+script = ExtResource("6_auswr")
+
+[node name="Sky" parent="." index="7"]
+z_index = -1

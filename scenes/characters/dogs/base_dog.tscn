@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://5joq03mk4kv3"]
+
+[ext_resource type="PackedScene" uid="uid://cvno8d4sb6h0s" path="res://scenes/characters/character.tscn" id="1_t516l"]
+[ext_resource type="Script" path="res://scenes/characters/dogs/base_dog.gd" id="2_krygw"]
+[ext_resource type="Texture2D" uid="uid://whf5eqdonrk0" path="res://resources/icons/pngwing.com.png" id="3_dhr53"]
+[ext_resource type="Script" path="res://scenes/characters/dogs/user_move_state.gd" id="3_t0eec"]
+[ext_resource type="Script" path="res://scenes/characters/dogs/user_attack_state.gd" id="4_ioj3n"]
+[ext_resource type="AudioStream" uid="uid://byul4hma3ffpq" path="res://resources/sound/battlefield/bite.mp3" id="5_ot2k0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uktwc"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6m5t"]
+resource_local_to_scene = true
+size = Vector2(192, 178)
+
+[node name="BaseDog" groups=["dogs"] instance=ExtResource("1_t516l")]
+collision_layer = 2
+collision_mask = 17
+input_pickable = true
+script = ExtResource("2_krygw")
+name_id = ""
+
+[node name="CollisionShape2D" parent="DanmakuHitbox" index="0"]
+shape = SubResource("RectangleShape2D_uktwc")
+
+[node name="CollisionShape2D" parent="." index="4"]
+light_mask = 2
+shape = SubResource("RectangleShape2D_i6m5t")
+
+[node name="Arrow" type="TextureProgressBar" parent="." index="6"]
+visible = false
+offset_left = 21.0
+offset_top = -184.0
+offset_right = 741.0
+offset_bottom = 222.0
+rotation = 1.5708
+scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 4
+size_flags_vertical = 6
+nine_patch_stretch = true
+texture_under = ExtResource("3_dhr53")
+texture_progress = ExtResource("3_dhr53")
+tint_under = Color(1, 0, 0, 1)
+tint_progress = Color(1, 1, 0, 1)
+
+[node name="UserMoveState" type="Node" parent="FiniteStateMachine" index="5"]
+script = ExtResource("3_t0eec")
+
+[node name="DiChuyen" type="AudioStreamPlayer" parent="FiniteStateMachine/UserMoveState" index="0"]
+bus = &"InBattleFX"
+
+[node name="UserAttackState" type="Node" parent="FiniteStateMachine" index="6"]
+script = ExtResource("4_ioj3n")
+
+[node name="Danh" type="AudioStreamPlayer" parent="FiniteStateMachine/UserAttackState" index="0"]
+stream = ExtResource("5_ot2k0")
+bus = &"InBattleFX"

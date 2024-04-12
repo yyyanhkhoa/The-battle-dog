@@ -1,0 +1,23 @@
+[gd_resource type="DanmakuBulletKit" load_steps=6 format=3 uid="uid://bxomgmfknxkax"]
+
+[ext_resource type="AudioStream" uid="uid://kscdsx7tbbxp" path="res://scenes/characters/dogs/miko_dog/se_damage00.wav" id="1_fi4a7"]
+[ext_resource type="Shader" path="res://scenes/danmaku/static_texture.gdshader" id="2_8ts5d"]
+[ext_resource type="Texture2D" uid="uid://d1hbv75qf3cw2" path="res://scenes/danmaku/bullets/bullet1/bullet1.png" id="3_ty2p8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_665gj"]
+size = Vector2(50, 17)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d880o"]
+shader = ExtResource("2_8ts5d")
+shader_parameter/target_frame = 0
+shader_parameter/texture_h_frames = 1
+shader_parameter/texture_v_frames = 9
+shader_parameter/modulate = Color(1, 1, 1, 1)
+
+[resource]
+texture = ExtResource("3_ty2p8")
+hit_sfx = ExtResource("1_fi4a7")
+material = SubResource("ShaderMaterial_d880o")
+collision_layer = 8
+collision_shape = SubResource("RectangleShape2D_665gj")
+data = null

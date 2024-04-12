@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://crluqfyv7dbna"]
+
+[ext_resource type="Material" uid="uid://dhtv2icxbag82" path="res://shaders/sky/sky.material" id="1_18dgk"]
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_evkhq"]
+[ext_resource type="Script" path="res://scenes/chapter_selection/chapter_selection.gd" id="2_1art8"]
+[ext_resource type="Texture2D" uid="uid://xb7r40nr2rgp" path="res://resources/battlefield_themes/heavenly/sky.png" id="4_lg4m4"]
+[ext_resource type="PackedScene" uid="uid://b2g2at480k1wu" path="res://scenes/chapter_selection/navigation_button/navigation_button.tscn" id="6_j8gfm"]
+[ext_resource type="PackedScene" uid="uid://d0jrn2xo773qv" path="res://scenes/common/buttons/go_back_button/go_back_button.tscn" id="7_qisty"]
+
+[node name="ChapterSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme = ExtResource("1_evkhq")
+script = ExtResource("2_1art8")
+
+[node name="CanvasLayerBG" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayerBG"]
+material = ExtResource("1_18dgk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3115.0
+offset_bottom = 1752.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("4_lg4m4")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1154.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 80
+
+[node name="StoryContainer" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+theme = ExtResource("1_evkhq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 102.0
+offset_bottom = 97.0
+theme_override_constants/separation = 10
+
+[node name="GoBackButton" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("7_qisty")]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"LabelLarge"
+text = "@EXPLORATION"
+
+[node name="NavigationButtonDown" parent="CanvasLayer/Control" instance=ExtResource("6_j8gfm")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -80.0
+offset_right = 135.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="NavigationButtonUp" parent="CanvasLayer/Control" instance=ExtResource("6_j8gfm")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.0
+offset_top = 10.0
+offset_right = 135.0
+offset_bottom = 80.0
+grow_horizontal = 2
+rotation = 3.14159
+size_flags_horizontal = 4
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+anchor_mode = 0

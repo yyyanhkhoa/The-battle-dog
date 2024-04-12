@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccdj0ugr5qddw"]
+
+[ext_resource type="PackedScene" uid="uid://dpgr6rk41h8du" path="res://scenes/characters/cats/base_cat.tscn" id="1_nw3qr"]
+[ext_resource type="Texture2D" uid="uid://dybmod6ntopsx" path="res://scenes/characters/cats/smol_cat/smol_cat.png" id="2_j1rjt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcbua"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5olg"]
+resource_local_to_scene = true
+size = Vector2(112, 118)
+
+[node name="SmolCat" instance=ExtResource("1_nw3qr")]
+reward_money = 20
+speed = 300
+attack_range = 20
+attack_cooldown = 0.05
+attack_frame = 11
+health = 180
+damage = 5
+knockbacks = 6
+
+[node name="CollisionShape2D" parent="DanmakuHitbox" index="0"]
+shape = SubResource("RectangleShape2D_lcbua")
+
+[node name="AttackCooldownTimer" parent="." index="1"]
+wait_time = 0.05
+
+[node name="Character" parent="CharacterAnimation" index="0"]
+texture = ExtResource("2_j1rjt")
+hframes = 3
+vframes = 4
+
+[node name="CollisionShape2D" parent="." index="4"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_m5olg")
+
+[node name="RayCast2D" parent="." index="5"]
+position = Vector2(-56, -26)
+target_position = Vector2(-20, 0)

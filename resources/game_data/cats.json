@@ -1,0 +1,19 @@
+{
+  "cat": {},
+  "leg_cat": {},
+  "smol_cat": {},
+  "rolling_cat": {},
+  "buff_cat": {},
+  "ramiel_cat": {},
+  "fairy_cat": {
+    "danmaku_bullets": {
+      "flower": 20
+    }
+  },
+  "sunflower_fairy_cat": {
+    "danmaku_bullets": {
+      "bullet_round1:orange": 100,
+      "bullet_round1:yellow": 100
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "theme": "nightmare",
+  "music": "battlefield_theme_nightmare",
+  "special_instruction": "invert_color",
+  "stage_width": 2700,
+  "cat_tower_health": 5,
+  "reward_bone": 666666,
+  "power_scale": 3.5,
+  "spawn_patterns": [
+    {
+      "id": "cat",
+      "interval": 5,
+      "delay": 5
+    },
+    {
+      "id": "leg_cat",
+      "interval": 5,
+      "delay": 10.5
+    },
+    {
+      "id": "rolling_cat",
+      "interval": 5,
+      "delay": 20
+    },
+    {
+      "id": "smol_cat",
+      "interval": 0.5,
+      "delay": 40
+    },
+    {
+      "id": "buff_cat",
+      "interval": 60,
+      "delay": 60
+    }
+  ],
+  "bosses": [
+    {
+      "health_at": 4,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "speed", "scale": 2.3 },
+        { "name": "health", "scale": 15 },
+        { "name": "damage", "scale": 10 },
+        { "name": "attack_cooldown", "scale": 0.5 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 20 },
+        { "name": "knockbacks", "value": 12 }
+      ]
+    },
+    {
+      "health_at": 3,
+      "id": "rolling_cat",
+      "buffs": [
+        { "name": "speed", "scale": 0.5 },
+        { "name": "health", "scale": 20 },
+        { "name": "damage", "scale": 3 },
+        { "name": "attack_cooldown", "scale": 0.1 },
+        { "name": "attack_area_range", "value": 20 },
+        { "name": "reward_money", "scale": 20 }
+      ]
+    },
+    {
+      "health_at": 2,
+      "id": "leg_cat",
+      "buffs": [
+        { "name": "speed", "scale": 2 },
+        { "name": "health", "scale": 30 },
+        { "name": "damage", "scale": 10 },
+        { "name": "attack_cooldown", "scale": 0.5 },
+        { "name": "reward_money", "scale": 20 }
+      ]
+    },
+    {
+      "health_at": 1,
+      "id": "buff_cat",
+      "buffs": [
+        { "name": "health", "scale": 10 },
+        { "name": "damage", "scale": 1.5 },
+        { "name": "attack_cooldown", "scale": 0.5 },
+        { "name": "reward_money", "scale": 6 }
+      ]
+    }
+  ]
+}

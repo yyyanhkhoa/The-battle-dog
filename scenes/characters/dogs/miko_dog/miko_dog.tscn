@@ -1,0 +1,258 @@
+[gd_scene load_steps=20 format=3 uid="uid://chsa5iqbxcilm"]
+
+[ext_resource type="PackedScene" uid="uid://5joq03mk4kv3" path="res://scenes/characters/dogs/base_dog.tscn" id="1_t2ynb"]
+[ext_resource type="Script" path="res://scenes/characters/dogs/miko_dog/miko_dog.gd" id="2_8rpp5"]
+[ext_resource type="Script" path="res://scenes/characters/dogs/miko_dog/attack_state.gd" id="2_i3nlb"]
+[ext_resource type="Texture2D" uid="uid://cpmqxhpuoenyj" path="res://scenes/characters/dogs/miko_dog/miko_dog.png" id="2_i8u76"]
+[ext_resource type="Script" path="res://scenes/characters/dogs/miko_dog/move_state.gd" id="4_x3uvc"]
+[ext_resource type="Script" path="res://scenes/characters/dogs/miko_dog/idle_state.gd" id="6_hcflj"]
+[ext_resource type="Script" path="res://scenes/characters/dogs/miko_dog/knockback_state.gd" id="8_o0snc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iv36t"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lu32d"]
+size = Vector2(800, 20)
+
+[sub_resource type="Animation" id="Animation_gwlt8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yyb3l"]
+resource_name = "attack"
+length = 0.666683
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 15]
+}
+
+[sub_resource type="Animation" id="Animation_8csog"]
+resource_name = "fly"
+length = 0.666685
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.500001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 10]
+}
+
+[sub_resource type="Animation" id="Animation_g7218"]
+resource_name = "idle"
+length = 0.500017
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_18yy2"]
+resource_name = "knockback"
+length = 0.500017
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_t17j0"]
+resource_name = "move"
+length = 0.666685
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.333333, 0.5001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 7]
+}
+
+[sub_resource type="Animation" id="Animation_m56yo"]
+resource_name = "pre_attack"
+length = 0.333351
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterAnimation/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_21x6l"]
+_data = {
+"RESET": SubResource("Animation_gwlt8"),
+"attack": SubResource("Animation_yyb3l"),
+"fly": SubResource("Animation_8csog"),
+"idle": SubResource("Animation_g7218"),
+"knockback": SubResource("Animation_18yy2"),
+"move": SubResource("Animation_t17j0"),
+"pre_attack": SubResource("Animation_m56yo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60v3l"]
+resource_local_to_scene = true
+size = Vector2(195, 226)
+
+[sub_resource type="Curve2D" id="Curve2D_68g0e"]
+bake_interval = 30.0
+_data = {
+"points": PackedVector2Array(-281.383, 39.6433, 281.383, -39.6433, 27, 245, 8.44054, 102.645, -8.44054, -102.645, 325, -312)
+}
+point_count = 2
+
+[node name="MikoDog" instance=ExtResource("1_t2ynb")]
+script = ExtResource("2_8rpp5")
+name_id = "miko_dog"
+attack_type = 3
+speed = 280
+attack_range = 800
+attack_cooldown = 20.0
+health = 400
+damage = 0
+
+[node name="CollisionShape2D" parent="DanmakuHitbox" index="0"]
+shape = SubResource("RectangleShape2D_iv36t")
+
+[node name="AirUnitDetector" type="Area2D" parent="." index="1"]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 64
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirUnitDetector" index="0"]
+position = Vector2(499, -1)
+shape = SubResource("RectangleShape2D_lu32d")
+
+[node name="AttackCooldownTimer" parent="." index="2"]
+wait_time = 20.0
+
+[node name="Character" parent="CharacterAnimation" index="0"]
+position = Vector2(-41, -60)
+texture = ExtResource("2_i8u76")
+vframes = 9
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_21x6l")
+}
+
+[node name="CollisionShape2D" parent="." index="5"]
+position = Vector2(1.5, -24)
+shape = SubResource("RectangleShape2D_60v3l")
+
+[node name="RayCast2D" parent="." index="6"]
+position = Vector2(99, -1)
+target_position = Vector2(800, 0)
+
+[node name="MoveState" parent="FiniteStateMachine" index="0"]
+script = ExtResource("4_x3uvc")
+
+[node name="AttackState" parent="FiniteStateMachine" index="1"]
+script = ExtResource("2_i3nlb")
+
+[node name="Patterns" type="Node2D" parent="FiniteStateMachine/AttackState" index="0"]
+
+[node name="Path1" type="Path2D" parent="FiniteStateMachine/AttackState/Patterns" index="0"]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_68g0e")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="FiniteStateMachine/AttackState/Patterns/Path1" index="0"]
+position = Vector2(27, 245)
+rotation = -0.139966
+loop = false
+
+[node name="Path2" type="Path2D" parent="FiniteStateMachine/AttackState/Patterns" index="1"]
+unique_name_in_owner = true
+scale = Vector2(1, -1)
+curve = SubResource("Curve2D_68g0e")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="FiniteStateMachine/AttackState/Patterns/Path2" index="0"]
+position = Vector2(27, 245)
+rotation = -0.139966
+loop = false
+
+[node name="Path3" type="Path2D" parent="FiniteStateMachine/AttackState/Patterns" index="2"]
+unique_name_in_owner = true
+rotation = 3.14159
+scale = Vector2(1, -1)
+curve = SubResource("Curve2D_68g0e")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="FiniteStateMachine/AttackState/Patterns/Path3" index="0"]
+position = Vector2(27, 245)
+rotation = -0.139966
+loop = false
+
+[node name="Path4" type="Path2D" parent="FiniteStateMachine/AttackState/Patterns" index="3"]
+unique_name_in_owner = true
+rotation = 3.14159
+curve = SubResource("Curve2D_68g0e")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="FiniteStateMachine/AttackState/Patterns/Path4" index="0"]
+position = Vector2(27, 245)
+rotation = -0.139966
+loop = false
+
+[node name="IdleState" parent="FiniteStateMachine" index="2"]
+script = ExtResource("6_hcflj")
+
+[node name="KnockbackState" parent="FiniteStateMachine" index="3"]
+script = ExtResource("8_o0snc")

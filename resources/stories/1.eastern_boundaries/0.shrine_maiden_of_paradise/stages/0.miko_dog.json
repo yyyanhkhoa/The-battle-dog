@@ -1,0 +1,130 @@
+{
+  "battlefield": "shrine_maiden",
+  "music": "battlefield_theme1",
+  "boss_music": "miko_dog_theme",
+  "reward_bone": 100000,
+  "stage_width": 9000,
+  "cat_tower_health": 30000,
+  "tori": {
+    "position": 4000,
+    "health": 50000,
+    "growls": 9,
+    "instant_spawns": {
+      "fairy_cat": 5,
+      "sunflower_fairy_cat": 1
+    }
+  },
+  "power_scale": 2.5,
+  "instant_spawns": [
+    {
+      "id": "sunflower_fairy_cat",
+      "position": [3000, -1500]
+    },
+    {
+      "id": "cat",
+      "position": 9300,
+      "props": { "speed": { "value": 200 }, "health": { "scale": 20 } }
+    },
+    {
+      "id": "leg_cat",
+      "position": 9500,
+      "props": {
+        "health": { "scale": 5 },
+        "damage": { "value": 0.25 },
+        "attack_cooldown": { "value": 0 }
+      }
+    },
+    {
+      "id": "leg_cat",
+      "position": 9900,
+      "props": {
+        "health": { "scale": 5 },
+        "damage": { "value": 0.25 },
+        "attack_range": { "scale": 0.5 },
+        "attack_cooldown": { "value": 1 }
+      }
+    },
+    {
+      "id": "buff_cat",
+      "position": 10300,
+      "props": {
+        "speed": { "value": 200 },
+        "health": { "scale": 2 }
+      }
+    },
+    {
+      "id": "leg_cat",
+      "position": 10700,
+      "props": { "health": { "scale": 5 }, "attack_range": { "scale": 3 }, "attack_cooldown": { "value": 2 } }
+    },
+    {
+      "id": "leg_cat",
+      "position": 11100,
+      "props": { "health": { "scale": 5 }, "attack_range": { "scale": 4 }, "attack_cooldown": { "value": 3 } }
+    },
+    {
+      "id": "cat",
+      "position": 11300,
+      "props": { "speed": { "value": 200 } },
+      "health": { "scale": 20 }
+    }
+  ],
+  "spawn_patterns": [
+    {
+      "id": "fairy_cat",
+      "interval": 30,
+      "delay": 180,
+      "limit": 5
+    },
+    {
+      "id": "smol_cat",
+      "interval": 2.5,
+      "delay": 5
+    },
+    {
+      "id": "cat",
+      "interval": 5,
+      "delay": 5.5
+    },
+    {
+      "id": "rolling_cat",
+      "interval": 10,
+      "delay": 30
+    },
+    {
+      "id": "buff_cat",
+      "when": "boss_spawned",
+      "spawn_type": "once"
+    },
+    {
+      "id": "buff_cat",
+      "interval": 120,
+      "delay": 60,
+      "when": "boss_spawned"
+    },
+    {
+      "id": "rolling_cat",
+      "interval": 20,
+      "when": "boss_spawned"
+    },
+    {
+      "id": "smol_cat",
+      "interval": 5,
+      "when": "boss_spawned"
+    }
+  ],
+  "bosses": [
+    {
+      "health_at": 30000,
+      "id": "miko_dog",
+      "dog_level": 10,
+      "dog_abilities": ["yin_yang_orb", "circular_ofudas"],
+      "props": {
+        "ofuda_damage": { "scale": 4 },
+        "reward_money": { "scale": 3 },
+        "health": { "scale": 15 },
+        "knockbacks": { "scale": 2 }
+      }
+    }
+  ]
+}

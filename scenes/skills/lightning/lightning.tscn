@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5s0lven71a1k"]
+
+[ext_resource type="Script" path="res://scenes/skills/lightning/lightning.gd" id="1_767qo"]
+
+[node name="lightnings" type="Node2D"]
+light_mask = 0
+z_index = 5
+script = ExtResource("1_767qo")

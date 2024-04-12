@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://tk6s5oluvidw"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_wfiyd"]
+[ext_resource type="Script" path="res://scenes/online_battle/lobby/room/player_slot/player_slot.gd" id="2_g8o5r"]
+
+[node name="PlayerSlot" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 100)
+theme = ExtResource("1_wfiyd")
+script = ExtResource("2_g8o5r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="NotEmpty" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerNameLabel" type="Label" parent="MarginContainer/NotEmpty"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "@LOADING"
+horizontal_alignment = 1
+
+[node name="ReadyLabel" type="Label" parent="MarginContainer/NotEmpty"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "@NOT_READY"
+horizontal_alignment = 1
+
+[node name="Empty" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="EmptyLabel" type="Label" parent="MarginContainer/Empty"]
+layout_mode = 2
+text = "@SLOT_EMPTY"
+horizontal_alignment = 1
+vertical_alignment = 1

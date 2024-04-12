@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbv7r5ubgecd8"]
+
+[ext_resource type="Shader" path="res://shaders/outline_noise/outline_noise.gdshader" id="1_j0nl3"]
+[ext_resource type="Script" path="res://scenes/battlefields/shrine_maiden_battlefield/tori/outline_noise.gd" id="2_mfvu1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p28rw"]
+shader = ExtResource("1_j0nl3")
+shader_parameter/zoom = 1.0
+shader_parameter/max_line_width = 20.0
+shader_parameter/min_line_width = 1.0
+shader_parameter/intensity = 1.0
+shader_parameter/line_blur = 0.125
+shader_parameter/block_size = 20.0
+shader_parameter/freq = 4.0
+shader_parameter/line_color = null
+
+[node name="OutlineNoise" type="CanvasGroup"]
+material = SubResource("ShaderMaterial_p28rw")
+script = ExtResource("2_mfvu1")

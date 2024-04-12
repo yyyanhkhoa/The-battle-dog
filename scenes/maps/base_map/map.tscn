@@ -1,0 +1,232 @@
+[gd_scene load_steps=24 format=3 uid="uid://gny6lao42iqp"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_0lsnx"]
+[ext_resource type="Script" path="res://scenes/maps/base_map/map.gd" id="1_0p7qx"]
+[ext_resource type="Shader" path="res://shaders/wiggle/wiggle.gdshader" id="3_5rsmx"]
+[ext_resource type="Texture2D" uid="uid://c44thpk4qy4v3" path="res://scenes/maps/base_map/map.png" id="3_hwhl3"]
+[ext_resource type="PackedScene" uid="uid://i3waaqjv5m7" path="res://scenes/maps/base_map/tracker/tracker.tscn" id="4_un5ok"]
+[ext_resource type="Texture2D" uid="uid://dxic50hwrqqm0" path="res://shaders/wiggle/texture.png" id="4_vlr1h"]
+[ext_resource type="Script" path="res://scenes/maps/base_map/stages.gd" id="5_ta18k"]
+[ext_resource type="Texture2D" uid="uid://bmrxxgd68boqd" path="res://scenes/maps/base_map/land.png" id="6_wblbr"]
+[ext_resource type="Texture2D" uid="uid://dtvyuuaxygrsr" path="res://scenes/characters/dogs/dog/dog.png" id="7_eb484"]
+[ext_resource type="PackedScene" uid="uid://cd5gw7llcsine" path="res://scenes/maps/base_map/stage/stage.tscn" id="8_uximv"]
+[ext_resource type="Script" path="res://scenes/maps/base_map/dog.gd" id="8_vsoej"]
+[ext_resource type="PackedScene" uid="uid://d0jrn2xo773qv" path="res://scenes/common/buttons/go_back_button/go_back_button.tscn" id="9_cbb4a"]
+[ext_resource type="Shortcut" uid="uid://moipqlm5cofg" path="res://resources/shortcuts/confirm.tres" id="10_3djod"]
+[ext_resource type="PackedScene" uid="uid://c2u0llmni7n54" path="res://scenes/common/h_slide_selection/h_slide_selection.tscn" id="12_3x1s8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_opxfo"]
+shader = ExtResource("3_5rsmx")
+shader_parameter/strength = 3.0
+shader_parameter/uv_scaling = 0.5
+shader_parameter/movement_direction = Vector2(-1, 0)
+shader_parameter/movement_speed = 0.5
+shader_parameter/NOISE_TEXTURE = ExtResource("4_vlr1h")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_de1st"]
+atlas = ExtResource("7_eb484")
+region = Rect2(1548, 0, 258, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stdsv"]
+atlas = ExtResource("7_eb484")
+region = Rect2(0, 263, 258, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rrow"]
+atlas = ExtResource("7_eb484")
+region = Rect2(258, 263, 258, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjuxa"]
+atlas = ExtResource("7_eb484")
+region = Rect2(516, 263, 258, 263)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e4la2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_de1st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stdsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rrow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjuxa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="InputEventAction" id="InputEventAction_p45xq"]
+action = &"ui_setup_team"
+
+[sub_resource type="Shortcut" id="Shortcut_0cnn8"]
+events = [SubResource("InputEventAction_p45xq")]
+
+[sub_resource type="Environment" id="Environment_kqeu4"]
+background_mode = 3
+glow_enabled = true
+fog_light_color = Color(0.976471, 0, 0.572549, 1)
+fog_light_energy = 6.71
+fog_sun_scatter = 2.35
+fog_density = 0.2445
+fog_height = 271.67
+fog_height_density = 0.027
+adjustment_brightness = 8.0
+adjustment_contrast = 8.0
+
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0lsnx")
+script = ExtResource("1_0p7qx")
+
+[node name="DragArea" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MapSprites" type="Node2D" parent="."]
+
+[node name="MapSprite" type="Sprite2D" parent="MapSprites"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_opxfo")
+texture = ExtResource("3_hwhl3")
+centered = false
+
+[node name="Land" type="Sprite2D" parent="MapSprites"]
+position = Vector2(435, 230)
+texture = ExtResource("6_wblbr")
+centered = false
+
+[node name="Stages" type="Node2D" parent="."]
+script = ExtResource("5_ta18k")
+
+[node name="Stage1" parent="Stages" instance=ExtResource("8_uximv")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 626.0
+offset_top = 360.0
+offset_right = 653.0
+offset_bottom = 387.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tracker" parent="." instance=ExtResource("4_un5ok")]
+unique_name_in_owner = true
+position = Vector2(576, 324)
+
+[node name="Dog" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(41, -20)
+scale = Vector2(0.269345, 0.269345)
+sprite_frames = SubResource("SpriteFrames_e4la2")
+offset = Vector2(-17.6188, -132.407)
+script = ExtResource("8_vsoej")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI"]
+offset_right = 1152.0
+offset_bottom = 87.0
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="GoBackButton" parent="GUI/MarginContainer/HBoxContainer" instance=ExtResource("9_cbb4a")]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="StoryTitle" type="Label" parent="GUI/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource("1_0lsnx")
+theme_type_variation = &"Label"
+text = "<STORY TITLE>"
+
+[node name="ChapterTitle" type="Label" parent="GUI/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource("1_0lsnx")
+theme_type_variation = &"LabelLarge"
+text = "<CHAPTER_TITLE>"
+
+[node name="Location" type="Label" parent="GUI/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_0lsnx")
+text = "<LOCATION>"
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
+offset_left = 873.0
+offset_top = 505.0
+offset_right = 913.0
+offset_bottom = 545.0
+theme_override_constants/separation = 10
+
+[node name="AttackButton" type="Button" parent="GUI/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_0lsnx")
+theme_type_variation = &"ButtonRed"
+theme_override_font_sizes/font_size = 30
+shortcut = ExtResource("10_3djod")
+text = "@ATTACK"
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="TeamSetupButton" type="Button" parent="GUI/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_0lsnx")
+shortcut = SubResource("Shortcut_0cnn8")
+text = "@TEAM_SETUP"
+
+[node name="StageChain" parent="GUI" instance=ExtResource("12_3x1s8")]
+unique_name_in_owner = true
+offset_top = 93.0
+offset_right = 1152.0
+offset_bottom = 197.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kqeu4")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5ck4rul7l5o4"]
+
+[ext_resource type="PackedScene" uid="uid://chnwixpec81w0" path="res://scenes/tutorial_dog/tutorial_dog.tscn" id="1_m3qrw"]
+[ext_resource type="Script" path="res://scenes/common/finite_state_machine/FSM.gd" id="2_h614t"]
+[ext_resource type="Script" path="res://scenes/dogbase/dogbase_tutorial_dog/dogbase_state.gd" id="3_uar8o"]
+[ext_resource type="Script" path="res://scenes/dogbase/dogbase_tutorial_dog/dogbase_after_battlefield.gd" id="4_t5b8t"]
+[ext_resource type="Script" path="res://scenes/dogbase/dogbase_tutorial_dog/initial_state.gd" id="5_8dllu"]
+
+[node name="TutorialDog" instance=ExtResource("1_m3qrw")]
+
+[node name="FSM" type="Node" parent="." index="6"]
+script = ExtResource("2_h614t")
+initial_state = NodePath("InitialState")
+
+[node name="InitialState" type="Node" parent="FSM" index="0"]
+script = ExtResource("5_8dllu")
+
+[node name="DogbaseState" type="Node" parent="FSM" index="1"]
+script = ExtResource("3_uar8o")
+
+[node name="DogbaseAfterBattlefieldState" type="Node" parent="FSM" index="2"]
+script = ExtResource("4_t5b8t")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceqhbfis7gleh"]
+
+[ext_resource type="PackedScene" uid="uid://bj0cb0c3284hb" path="res://scenes/common/buttons/icon_button/icon_button.tscn" id="1_h18jc"]
+[ext_resource type="Script" path="res://scenes/dogbase/select_chapter_button/select_chapter_button.gd" id="2_4y2yt"]
+[ext_resource type="Texture2D" uid="uid://flkiom836ojk" path="res://scenes/dogbase/select_chapter_button/select_chapter_icon.png" id="2_hmsgp"]
+
+[node name="SelectChapterIcon" instance=ExtResource("1_h18jc")]
+script = ExtResource("2_4y2yt")
+
+[node name="Icon" parent="." index="1"]
+texture = ExtResource("2_hmsgp")

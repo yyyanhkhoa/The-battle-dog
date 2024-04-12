@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bgusfs8u3af0x"
+path="res://.godot/imported/click_mask.png-0ca2d3380ad3b4e59284ad021c8b6a24.res"
+
+[deps]
+
+source_file="res://scenes/battlefields/common/base_battlefield/gui/switch_row_button/click_mask.png"
+dest_files=["res://.godot/imported/click_mask.png-0ca2d3380ad3b4e59284ad021c8b6a24.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

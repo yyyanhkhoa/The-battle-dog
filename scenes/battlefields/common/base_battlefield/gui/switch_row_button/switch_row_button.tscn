@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://j4j2gjue6ewr"]
+
+[ext_resource type="BitMap" uid="uid://bgusfs8u3af0x" path="res://scenes/battlefields/common/base_battlefield/gui/switch_row_button/click_mask.png" id="1_tboja"]
+[ext_resource type="Script" path="res://scenes/battlefields/common/base_battlefield/gui/switch_row_button/switch_row_button.gd" id="2_m7qsa"]
+[ext_resource type="Texture2D" uid="uid://ck3six1xb4876" path="res://scenes/battlefields/common/base_battlefield/gui/switch_row_button/switch_row_button.png" id="2_pgkmd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egfig"]
+atlas = ExtResource("2_pgkmd")
+region = Rect2(0, 0, 194, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lb66"]
+atlas = ExtResource("2_pgkmd")
+region = Rect2(194, 0, 194, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1fpl"]
+atlas = ExtResource("2_pgkmd")
+region = Rect2(0, 195, 194, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c6eo"]
+atlas = ExtResource("2_pgkmd")
+region = Rect2(194, 195, 194, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlw32"]
+atlas = ExtResource("2_pgkmd")
+region = Rect2(0, 390, 194, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0vrh"]
+atlas = ExtResource("2_pgkmd")
+region = Rect2(194, 390, 194, 195)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lbs3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egfig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lb66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1fpl")
+}],
+"loop": true,
+"name": &"ready",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5c6eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlw32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0vrh")
+}],
+"loop": true,
+"name": &"wait",
+"speed": 3.0
+}]
+
+[node name="SwitchRowButton" type="TextureButton"]
+offset_right = 191.0
+offset_bottom = 193.0
+focus_mode = 0
+texture_click_mask = ExtResource("1_tboja")
+script = ExtResource("2_m7qsa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(97, 99)
+sprite_frames = SubResource("SpriteFrames_1lbs3")
+animation = &"ready"

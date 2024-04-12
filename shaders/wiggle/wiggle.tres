@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dfu5qibrxab0l"]
+
+[ext_resource type="Shader" path="res://shaders/wiggle/wiggle.gdshader" id="1_qu38e"]
+[ext_resource type="Texture2D" uid="uid://dxic50hwrqqm0" path="res://shaders/wiggle/texture.png" id="2_fe3fv"]
+
+[resource]
+shader = ExtResource("1_qu38e")
+shader_parameter/strength = 5.0
+shader_parameter/uv_scaling = 1.0
+shader_parameter/movement_direction = Vector2(-1, 0)
+shader_parameter/movement_speed = 1.0
+shader_parameter/NOISE_TEXTURE = ExtResource("2_fe3fv")

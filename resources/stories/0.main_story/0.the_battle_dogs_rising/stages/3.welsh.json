@@ -1,0 +1,28 @@
+{
+  "theme": "fall",
+  "music": "battlefield_theme2",
+  "stage_width": 3200,
+  "cat_tower_health": 2000,
+  "reward_bone": 20000,
+  "spawn_patterns": [
+    {
+      "id": "cat",
+      "interval": 5
+    },
+    {
+      "id": "leg_cat",
+      "interval": 15,
+      "delay": 10
+    },
+    {
+      "id": "smol_cat",
+      "interval": 5,
+      "delay": 30
+    },
+    {
+      "id": "smol_cat",
+      "interval": 5,
+      "delay": 12.5
+    }
+  ]
+}

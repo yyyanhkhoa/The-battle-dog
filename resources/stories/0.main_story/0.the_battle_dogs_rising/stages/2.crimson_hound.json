@@ -1,0 +1,31 @@
+{
+  "theme": "green_grass",
+  "music": "battlefield_theme1",
+  "boss_music": "boss_theme1",
+  "stage_width": 4200,
+  "cat_tower_health": 999,
+  "reward_bone": 9999,
+  "spawn_patterns": [
+    {
+      "id": "cat",
+      "interval": 5,
+      "delay": 5
+    },
+    {
+      "id": "leg_cat",
+      "interval": 15,
+      "delay": 25
+    }
+  ],
+  "bosses": [
+    {
+      "health_at": 1,
+      "id": "smol_cat",
+      "buffs": [
+        { "name": "health", "scale": 10 },
+        { "name": "damage", "scale": 5 },
+        { "name": "reward_money", "scale": 5 }
+      ]
+    }
+  ]
+}

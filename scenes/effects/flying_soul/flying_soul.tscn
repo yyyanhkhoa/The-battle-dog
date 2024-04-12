@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://drtciyu1luh42"]
+
+[ext_resource type="Texture2D" uid="uid://c6ixpknj1dk18" path="res://scenes/effects/flying_soul/soul.png" id="1_ylb7h"]
+[ext_resource type="Script" path="res://scenes/effects/flying_soul/flying_soul.gd" id="2_4b7rr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuq5o"]
+atlas = ExtResource("1_ylb7h")
+region = Rect2(0, 0, 216, 206)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a6us"]
+atlas = ExtResource("1_ylb7h")
+region = Rect2(0, 206, 216, 206)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrejl"]
+atlas = ExtResource("1_ylb7h")
+region = Rect2(0, 412, 216, 206)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wqqi"]
+atlas = ExtResource("1_ylb7h")
+region = Rect2(0, 618, 216, 206)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amlvo"]
+atlas = ExtResource("1_ylb7h")
+region = Rect2(0, 824, 216, 206)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1yit"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuq5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a6us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrejl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wqqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amlvo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="FlyingSoul" type="Node2D"]
+position = Vector2(607, 602)
+script = ExtResource("2_4b7rr")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-42.053, 0)
+sprite_frames = SubResource("SpriteFrames_e1yit")
+frame_progress = 0.992498

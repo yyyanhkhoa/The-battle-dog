@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2u0llmni7n54"]
+
+[ext_resource type="Script" path="res://scenes/common/h_slide_selection/h_slide_selection.gd" id="1_vehk4"]
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_vfyry"]
+
+[node name="HSlideSelection" type="SubViewportContainer"]
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
+stretch = true
+script = ExtResource("1_vehk4")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport"]
+unique_name_in_owner = true
+offset_top = 10.0
+offset_right = 800.0
+offset_bottom = 94.0
+theme = ExtResource("1_vfyry")
+theme_override_constants/separation = 30
+alignment = 1

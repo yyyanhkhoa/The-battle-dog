@@ -1,0 +1,50 @@
+[
+  {
+    "ID": "dog",
+    "price": 1000,
+    "spawn_time": 2,
+    "spawn_price": 50
+  },
+  {
+    "ID": "sword_dog",
+    "price": 2000,
+    "spawn_time": 8,
+    "spawn_price": 150
+  },
+  {
+    "ID": "waffle_dog",
+    "price": 3000,
+    "spawn_time": 4,
+    "spawn_price": 100
+  },
+  {
+    "ID": "angel_dog",
+    "price": 4000,
+    "spawn_time": 15,
+    "spawn_price": 200
+  },
+  {
+    "ID": "sniper_dog",
+    "price": 8000,
+    "spawn_time": 45,
+    "spawn_price": 750
+  },
+  {
+    "ID": "batter_dog",
+    "price": 25000,
+    "spawn_limit": 1,
+    "spawn_time": 0,
+    "spawn_price": 2000
+  },
+  {
+    "ID": "miko_dog",
+    "price": 50000,
+    "spawn_limit": 2,
+    "spawn_time": 90,
+    "spawn_price": 2000,
+    "danmaku_bullets": {
+      "ofuda:red": 700,
+      "ofuda:gray": 700
+    }
+  }
+]

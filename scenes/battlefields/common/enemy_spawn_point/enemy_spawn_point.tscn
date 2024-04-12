@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://byix3iwgirpdb"]
+
+[ext_resource type="Script" path="res://scenes/battlefields/common/enemy_spawn_point/enemy_spawn_point.gd" id="1_33cas"]
+
+[node name="EnemySpawnPoint" type="Marker2D"]
+gizmo_extents = 30.0
+script = ExtResource("1_33cas")

@@ -1,0 +1,3 @@
+[submodule "addons/native_bullets/tbd-native-bullets-bin"]
+	path = addons/native_bullets/tbd-native-bullets-bin
+	url = https://github.com/comaybay/tbd-native-bullets-bin.git

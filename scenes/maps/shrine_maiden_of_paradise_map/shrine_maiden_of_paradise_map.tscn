@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://cu8js5obflbl1"]
+
+[ext_resource type="PackedScene" uid="uid://gny6lao42iqp" path="res://scenes/maps/base_map/map.tscn" id="1_fqnsj"]
+[ext_resource type="Shader" path="res://shaders/wiggle/wiggle.gdshader" id="2_rsb2b"]
+[ext_resource type="Texture2D" uid="uid://ci3fl1xkkv1y1" path="res://scenes/maps/shrine_maiden_of_paradise_map/map.png" id="2_tlqeo"]
+[ext_resource type="Texture2D" uid="uid://bs467gs2i2wr2" path="res://scenes/maps/shrine_maiden_of_paradise_map/map_wiggle.png" id="3_54gk8"]
+[ext_resource type="Texture2D" uid="uid://dxic50hwrqqm0" path="res://shaders/wiggle/texture.png" id="3_m4kax"]
+[ext_resource type="Texture2D" uid="uid://d0qdt0fta6h8f" path="res://scenes/maps/shrine_maiden_of_paradise_map/land.png" id="3_x5dqi"]
+[ext_resource type="PackedScene" uid="uid://cd5gw7llcsine" path="res://scenes/maps/base_map/stage/stage.tscn" id="6_v2qcw"]
+[ext_resource type="Texture2D" uid="uid://cooek0qvmburt" path="res://scenes/maps/shrine_maiden_of_paradise_map/shrine.png" id="7_i7mu6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cxsut"]
+shader = ExtResource("2_rsb2b")
+shader_parameter/strength = 5.0
+shader_parameter/uv_scaling = 1.0
+shader_parameter/movement_direction = Vector2(-1, 0)
+shader_parameter/movement_speed = 1.0
+shader_parameter/NOISE_TEXTURE = ExtResource("3_m4kax")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5wjvg"]
+shader = ExtResource("2_rsb2b")
+shader_parameter/strength = 5.0
+shader_parameter/uv_scaling = 0.25
+shader_parameter/movement_direction = Vector2(-1, 1)
+shader_parameter/movement_speed = 0.5
+shader_parameter/NOISE_TEXTURE = ExtResource("3_m4kax")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_46li3"]
+shader = ExtResource("2_rsb2b")
+shader_parameter/strength = 2.0
+shader_parameter/uv_scaling = 0.45
+shader_parameter/movement_direction = Vector2(0, 1)
+shader_parameter/movement_speed = 0.5
+shader_parameter/NOISE_TEXTURE = ExtResource("3_m4kax")
+
+[node name="ShrineMaidenOfParadiseMap" instance=ExtResource("1_fqnsj")]
+
+[node name="MapSprite" parent="MapSprites" index="0"]
+material = SubResource("ShaderMaterial_cxsut")
+texture = ExtResource("2_tlqeo")
+
+[node name="Trees" type="Sprite2D" parent="MapSprites" index="1"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_5wjvg")
+texture = ExtResource("3_54gk8")
+centered = false
+
+[node name="Land" parent="MapSprites" index="2"]
+position = Vector2(73, 114)
+texture = ExtResource("3_x5dqi")
+
+[node name="Shrine" type="Sprite2D" parent="MapSprites" index="3"]
+material = SubResource("ShaderMaterial_46li3")
+position = Vector2(898, 0)
+texture = ExtResource("7_i7mu6")
+centered = false
+
+[node name="Stage1" parent="Stages" index="0"]
+offset_left = 151.0
+offset_top = 175.0
+offset_right = 178.0
+offset_bottom = 202.0
+
+[node name="Stage2" parent="Stages" index="1" instance=ExtResource("6_v2qcw")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1201.0
+offset_top = 530.0
+offset_right = 1228.0
+offset_bottom = 557.0
+grow_horizontal = 2
+grow_vertical = 2

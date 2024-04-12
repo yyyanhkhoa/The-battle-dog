@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=3 uid="uid://dk7bj5d8loqag"]
+
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_l0dwr"]
+[ext_resource type="Script" path="res://scenes/store/item_box.gd" id="2_1r6l5"]
+[ext_resource type="Texture2D" uid="uid://cqte340ris3tl" path="res://scenes/common/buttons/rectangular_button/rectangular_button.png" id="3_bvmql"]
+[ext_resource type="Texture2D" uid="uid://c1xsecpc7ca2i" path="res://resources/icons/store/nuclear_bomb_icon.png" id="4_36gyf"]
+[ext_resource type="Texture2D" uid="uid://bnp7cvbuvml6e" path="res://resources/images/bone.png" id="5_wtanw"]
+
+[sub_resource type="Animation" id="Animation_ty6py"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_c6xly"]
+resource_name = "ready"
+length = 1.00003
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwgdf"]
+_data = {
+"RESET": SubResource("Animation_ty6py"),
+"ready": SubResource("Animation_c6xly")
+}
+
+[node name="Box" type="Control"]
+custom_minimum_size = Vector2(261, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 200.0
+theme = ExtResource("1_l0dwr")
+script = ExtResource("2_1r6l5")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(130.04, 116)
+scale = Vector2(0.819, 0.819)
+texture = ExtResource("3_bvmql")
+vframes = 5
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(130.04, 116)
+scale = Vector2(0.819, 0.819)
+texture = ExtResource("4_36gyf")
+hframes = 3
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uwgdf")
+}
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+offset_top = 15.0
+offset_right = 262.0
+offset_bottom = 216.0
+focus_mode = 0
+theme_type_variation = &"ButtonItem"
+
+[node name="Amount" type="Label" parent="."]
+layout_mode = 2
+offset_left = 12.0
+offset_right = 212.0
+offset_bottom = 37.0
+theme_type_variation = &"LabelLarge"
+text = "x0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 186.0
+offset_right = 254.0
+offset_bottom = 234.0
+alignment = 2
+
+[node name="Price" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelLarge"
+text = "10000"
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="BoneIcon" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("5_wtanw")
+expand_mode = 3

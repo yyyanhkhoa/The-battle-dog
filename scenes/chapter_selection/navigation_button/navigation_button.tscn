@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2g2at480k1wu"]
+
+[ext_resource type="Texture2D" uid="uid://cqwcxi1qt48ud" path="res://scenes/chapter_selection/navigation.png" id="1_56p0g"]
+[ext_resource type="Theme" uid="uid://b8ikq1gvmxsgp" path="res://resources/theme.tres" id="1_pryvj"]
+[ext_resource type="Script" path="res://scenes/chapter_selection/navigation_button/navigation_button.gd" id="2_qo6r7"]
+
+[sub_resource type="Animation" id="Animation_noh03"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_gca11"]
+resource_name = "off"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_f2qfw"]
+resource_name = "on"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fxg3"]
+_data = {
+"RESET": SubResource("Animation_noh03"),
+"off": SubResource("Animation_gca11"),
+"on": SubResource("Animation_f2qfw")
+}
+
+[node name="NavigationButton" type="TextureButton"]
+custom_minimum_size = Vector2(270, 70)
+offset_right = 270.0
+offset_bottom = 70.0
+pivot_offset = Vector2(135, 35)
+theme = ExtResource("1_pryvj")
+script = ExtResource("2_qo6r7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_56p0g")
+offset = Vector2(134.133, 34.6667)
+hframes = 3
+vframes = 2
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "off"
+libraries = {
+"": SubResource("AnimationLibrary_3fxg3")
+}

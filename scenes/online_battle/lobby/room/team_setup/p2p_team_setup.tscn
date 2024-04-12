@@ -1,0 +1,214 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddv5saf6lai73"]
+
+[ext_resource type="PackedScene" uid="uid://da1jal8d6xyt3" path="res://scenes/main_gui/main_gui.tscn" id="1_xcqq7"]
+[ext_resource type="Script" path="res://scenes/online_battle/lobby/room/team_setup/p2p_team_setup.gd" id="2_rc4hm"]
+[ext_resource type="Script" path="res://scenes/online_battle/lobby/room/team_setup/p2p_team_setup_main_gui.gd" id="2_t4inq"]
+[ext_resource type="Texture2D" uid="uid://c8ukq54wldvui" path="res://resources/images/dog_base/info_panel.png" id="3_dcbx3"]
+[ext_resource type="AudioStream" uid="uid://daj283a7jod3n" path="res://resources/sound/button_pressed.mp3" id="5_nwefi"]
+[ext_resource type="PackedScene" uid="uid://dg431mihiquab" path="res://scenes/team_setup/box_character.tscn" id="6_6utw1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqn1s"]
+content_margin_top = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="SelectCharacter" instance=ExtResource("1_xcqq7")]
+script = ExtResource("2_t4inq")
+title = "@TEAM_SETUP"
+go_back_scene_path = null
+
+[node name="InfoPanel" type="TextureRect" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -309.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_dcbx3")
+
+[node name="TitleLabel" parent="Khung/Header/MarginContainer/HBoxContainer" index="1"]
+text = "@TEAM_SETUP"
+
+[node name="Content" parent="Khung" index="1"]
+script = ExtResource("2_rc4hm")
+
+[node name="Luu" type="AudioStreamPlayer2D" parent="Khung/Content" index="0"]
+position = Vector2(0, -63)
+stream = ExtResource("5_nwefi")
+volume_db = 14.998
+bus = &"SoundFX"
+
+[node name="Khung" type="VBoxContainer" parent="Khung/Content" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PhanTren" type="VBoxContainer" parent="Khung/Content/Khung" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.22
+
+[node name="TabContainer" type="TabContainer" parent="Khung/Content/Khung/PhanTren" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqn1s")
+tab_alignment = 1
+
+[node name="Đội hình" type="HBoxContainer" parent="Khung/Content/Khung/PhanTren/TabContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterSlots" type="GridContainer" parent="Khung/Content/Khung/PhanTren/TabContainer/Đội hình" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/h_separation = 10
+columns = 5
+
+[node name="CharacterButton" parent="Khung/Content/Khung/PhanTren/TabContainer/Đội hình/CharacterSlots" index="0" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="CharacterButton2" parent="Khung/Content/Khung/PhanTren/TabContainer/Đội hình/CharacterSlots" index="1" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="CharacterButton3" parent="Khung/Content/Khung/PhanTren/TabContainer/Đội hình/CharacterSlots" index="2" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="CharacterButton4" parent="Khung/Content/Khung/PhanTren/TabContainer/Đội hình/CharacterSlots" index="3" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="CharacterButton5" parent="Khung/Content/Khung/PhanTren/TabContainer/Đội hình/CharacterSlots" index="4" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="CharacterButton6" parent="Khung/Content/Khung/PhanTren/TabContainer/Đội hình/CharacterSlots" index="5" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="CharacterButton7" parent="Khung/Content/Khung/PhanTren/TabContainer/Đội hình/CharacterSlots" index="6" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="CharacterButton8" parent="Khung/Content/Khung/PhanTren/TabContainer/Đội hình/CharacterSlots" index="7" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="CharacterButton9" parent="Khung/Content/Khung/PhanTren/TabContainer/Đội hình/CharacterSlots" index="8" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="CharacterButton10" parent="Khung/Content/Khung/PhanTren/TabContainer/Đội hình/CharacterSlots" index="9" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="Skill" type="HBoxContainer" parent="Khung/Content/Khung/PhanTren/TabContainer" index="2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SkillSlots" type="GridContainer" parent="Khung/Content/Khung/PhanTren/TabContainer/Skill" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 5
+
+[node name="SkillButton" parent="Khung/Content/Khung/PhanTren/TabContainer/Skill/SkillSlots" index="0" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="SkillButton2" parent="Khung/Content/Khung/PhanTren/TabContainer/Skill/SkillSlots" index="1" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="SkillButton3" parent="Khung/Content/Khung/PhanTren/TabContainer/Skill/SkillSlots" index="2" instance=ExtResource("6_6utw1")]
+layout_mode = 2
+
+[node name="PhanDuoi" type="VBoxContainer" parent="Khung/Content/Khung" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TieuDe" type="HBoxContainer" parent="Khung/Content/Khung/PhanDuoi" index="0"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Khung/Content/Khung/PhanDuoi/TieuDe" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="Label2" type="Label" parent="Khung/Content/Khung/PhanDuoi/TieuDe/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_type_variation = &"LabelWhite"
+theme_override_font_sizes/font_size = 28
+text = "@LIST"
+
+[node name="DanhSach" type="Control" parent="Khung/Content/Khung/PhanDuoi" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NhanVat" type="ScrollContainer" parent="Khung/Content/Khung/PhanDuoi/DanhSach" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -391.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 3
+
+[node name="CharacterList" type="GridContainer" parent="Khung/Content/Khung/PhanDuoi/DanhSach/NhanVat" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 50
+
+[node name="Skill" type="ScrollContainer" parent="Khung/Content/Khung/PhanDuoi/DanhSach" index="1"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -391.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 3
+
+[node name="SkillList" type="GridContainer" parent="Khung/Content/Khung/PhanDuoi/DanhSach/Skill" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 50
+
+[node name="Store" type="ScrollContainer" parent="Khung/Content/Khung/PhanDuoi/DanhSach" index="2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -391.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 3
+
+[node name="StoreList" type="GridContainer" parent="Khung/Content/Khung/PhanDuoi/DanhSach/Store" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 50
